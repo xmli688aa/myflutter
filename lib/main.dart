@@ -22,7 +22,28 @@ class MYHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Hello World")),
-      body: Text("hello flutter"),
+      body: const HomePageContent(),
+      floatingActionButton:
+          FloatingActionButton(onPressed: () {}, child: Icon(Icons.add)),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+    );
+  }
+}
+
+class HomePageContent extends StatefulWidget {
+  const HomePageContent({super.key});
+
+  @override
+  State<HomePageContent> createState() => _HomePageContentState();
+}
+
+class _HomePageContentState extends State<HomePageContent> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        FloatingActionButton(onPressed: () {}, child: Icon(Icons.add)),
+      ],
     );
   }
 }
