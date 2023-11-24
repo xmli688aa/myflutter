@@ -45,6 +45,21 @@ class ButtonDemo extends StatelessWidget {
       children: [
         ElevatedButton(
             style: ButtonStyle(
+                //去掉内边距
+                padding: MaterialStateProperty.all(EdgeInsets.zero),
+                //去掉外边距
+                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                // elevation: MaterialStateProperty.all(0),
+                shadowColor: MaterialStatePropertyAll(Colors.blue),
+                backgroundColor: MaterialStateProperty.all(Colors.yellow)),
+            onPressed: () {},
+            child: const Text(
+              "我是ElevatedButton",
+              style:
+                  TextStyle(color: Colors.red, backgroundColor: Colors.green),
+            )),
+        ElevatedButton(
+            style: ButtonStyle(
                 // elevation: MaterialStateProperty.all(0),
                 shadowColor: MaterialStatePropertyAll(Colors.blue),
                 backgroundColor: MaterialStateProperty.all(Colors.yellow)),
