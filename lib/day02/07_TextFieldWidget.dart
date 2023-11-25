@@ -82,6 +82,9 @@ class _HomePageContentState extends State<HomePageContent> {
             height: 10,
           ),
           TextField(
+            keyboardType: TextInputType.number,
+            maxLines: 1,
+            maxLength: 20,
             controller: passwordTextCl,
             decoration: InputDecoration(
               icon: Icon(Icons.lock),
@@ -126,7 +129,9 @@ class _HomePageContentState extends State<HomePageContent> {
 }
 
 
-// 一些属性比较简单：keyboardType键盘的类型，style设置样式，textAlign文本对齐方式，maxLength最大显示行数等等；
+// 一些属性比较简单：keyboardType键盘的类型，
+// style设置样式，textAlign文本对齐方式，
+//maxLength最多字数 maxLines最多显示行数等等；
 // decoration：用于设置输入框相关的样式
 // icon：设置左边显示的图标
 // labelText：在输入框上面显示一个提示的文本
