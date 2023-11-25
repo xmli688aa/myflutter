@@ -48,24 +48,35 @@ class _HomePageContentState extends State<HomePageContent> {
       padding: const EdgeInsets.all(8.0),
       child: Column(
         children: [
-          TextField(
-            controller: userNameTextCl,
-            decoration: InputDecoration(
-                icon: Icon(Icons.people),
-                // labelText: "uesename",
-                hintText: "请输入用户名",
-                //去掉边框
-                border: InputBorder.none,
-                // border: OutlineInputBorder(),
-                //设置filled位true才能试着fillColor
-                filled: true,
-                fillColor: Colors.red[100]),
-            onChanged: (value) {
-              print("onChanged：${value}");
-            },
-            onSubmitted: (value) {
-              print("onSubmitted：${value}");
-            },
+          Theme(
+            //这个是用来修改TextField边框的颜色
+            data: ThemeData(
+              //要修改哪些参数，直接在这里修改，覆盖之前的设置
+              colorScheme: Theme.of(context).colorScheme.copyWith(
+                    primary: Colors.red,
+                  ),
+              //下面这个地方设置primaryColor已经失效了
+              // primaryColor: Colors.red,
+            ),
+            child: TextField(
+              controller: userNameTextCl,
+              decoration: InputDecoration(
+                  icon: Icon(Icons.people),
+                  // labelText: "uesename",
+                  hintText: "请输入用户名",
+                  //去掉边框
+                  border: InputBorder.none,
+                  // border: OutlineInputBorder(),
+                  //设置filled位true才能试着fillColor
+                  filled: true,
+                  fillColor: Colors.red[100]),
+              onChanged: (value) {
+                print("onChanged：${value}");
+              },
+              onSubmitted: (value) {
+                print("onSubmitted：${value}");
+              },
+            ),
           ),
           SizedBox(
             height: 10,
@@ -73,15 +84,16 @@ class _HomePageContentState extends State<HomePageContent> {
           TextField(
             controller: passwordTextCl,
             decoration: InputDecoration(
-                icon: Icon(Icons.lock),
-                // labelText: "password",
-                hintText: "请输入密码",
-                //去掉边框
-                // border: InputBorder.none,
-                border: OutlineInputBorder(),
-                //设置filled位true才能试着fillColor
-                filled: true,
-                fillColor: Colors.red[100]),
+              icon: Icon(Icons.lock),
+              // labelText: "password",
+              hintText: "请输入密码",
+              //去掉边框
+              // border: InputBorder.none,
+              border: OutlineInputBorder(),
+              //设置filled位true才能试着fillColor
+              // filled: true,
+              // fillColor: Colors.red[100]
+            ),
             onChanged: (value) {
               print("onChanged：${value}");
             },
@@ -99,7 +111,7 @@ class _HomePageContentState extends State<HomePageContent> {
             child: ElevatedButton(
                 onPressed: () {
                   print("用户名：${userNameTextCl.text},密码：${passwordTextCl.text}");
-                  userNameTextCl.text = "";
+                  // userNameTextCl.text = "";
                   passwordTextCl.text = "";
                 },
                 child: Text(
@@ -112,6 +124,7 @@ class _HomePageContentState extends State<HomePageContent> {
     );
   }
 }
+
 
 // 一些属性比较简单：keyboardType键盘的类型，style设置样式，textAlign文本对齐方式，maxLength最大显示行数等等；
 // decoration：用于设置输入框相关的样式
