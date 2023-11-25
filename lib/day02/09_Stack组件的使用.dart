@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -38,6 +40,8 @@ class HomePageContent extends StatefulWidget {
 }
 
 class _HomePageContentState extends State<HomePageContent> {
+  var _favor = false;
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -51,7 +55,7 @@ class _HomePageContentState extends State<HomePageContent> {
         ),
         Image.asset("assets/images/headerIcon.jpg"),
         Positioned(
-          bottom: -44,
+          bottom: 0,
           left: 0,
           right: 0,
           child: Container(
@@ -69,29 +73,15 @@ class _HomePageContentState extends State<HomePageContent> {
                 GestureDetector(
                   onTap: () {
                     print("点击了不错");
+                    _favor = !_favor;
+                    setState(() {});
                   },
                   onLongPress: () {
                     print("长按了不错图标");
                   },
                   child: Icon(
                     Icons.favorite,
-                    color: Colors.red,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {
-                    print("点击了⭐️");
-                  },
-                  icon: Icon(
-                    Icons.star,
-                    color: Colors.green,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Text(
-                    "哈哈",
-                    style: TextStyle(color: Colors.red),
+                    color: _favor == false ? Colors.white : Colors.red,
                   ),
                 ),
               ],
