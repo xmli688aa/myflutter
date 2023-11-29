@@ -1,0 +1,22 @@
+[
+  {
+      "nickname":"张山",
+      "roomName":"深圳",
+      "imageUrl":"http://baidu.com"
+  },
+  {
+      "nickname":"李四",
+      "roomName":"湖北",
+      "imageUrl":"http://baidu.com"
+  },
+  {
+      "nickname":"王五",
+      "roomName":"广州",
+      "imageUrl":"http://baidu.com"
+  },
+  {
+      "nickname":"赵六",
+      "roomName":"东莞",
+      "imageUrl":"http://baidu.com"
+  }
+]
