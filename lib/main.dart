@@ -21,7 +21,7 @@ class MYHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Hello World")),
+      appBar: AppBar(title: Text("视频播放")),
       body: const HomePageContent(),
       floatingActionButton:
           FloatingActionButton(onPressed: () {}, child: Icon(Icons.add)),
@@ -40,10 +40,6 @@ class HomePageContent extends StatefulWidget {
 class _HomePageContentState extends State<HomePageContent> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        FloatingActionButton(onPressed: () {}, child: Icon(Icons.add)),
-      ],
-    );
+    return  Text("hello world");
   }
 }
