@@ -1,47 +1,20 @@
+import 'dart:async';
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
-void main() {
-  //1.Flutter启动需要执行runApp函数
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: MYHomePage(),
-    );
-  }
-}
-
-class MYHomePage extends StatelessWidget {
-  const MYHomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return HomePageContent();
-  }
-}
-
-class HomePageContent extends StatefulWidget {
-  const HomePageContent({super.key});
-
-  @override
-  State<HomePageContent> createState() => _HomePageContentState();
-}
-
-class _HomePageContentState extends State<HomePageContent> {
-  @override
-  Widget build(BuildContext context) {
-    return ETVideoPlayerView();
-  }
-}
-
 class ETVideoPlayerView extends StatefulWidget {
-  const ETVideoPlayerView({Key? key}) : super(key: key);
+  //外部传过来视频的url
+  final String videoUrl;
+  double videoWidth; //视频播放器宽度
+  double videoHeight; //视频播放器高度
+  ETVideoPlayerView({
+    Key? key,
+    required this.videoUrl,
+    this.videoHeight = 230,
+    this.videoWidth = double.infinity,
+  }) : super(key: key);
 
   @override
   State<ETVideoPlayerView> createState() => _ETVideoPlayerViewState();
@@ -53,7 +26,6 @@ class _ETVideoPlayerViewState extends State<ETVideoPlayerView> {
   String _lastTime = "";
   bool _showSlider = true;
 
-  final String videoUrl = "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4";
   // final String videoUrl =
   //     "https://live163.ws.126.net/record-live-20c47a984a2ef30cd6029e44bd525a52-2023-11-23-10-44-39_2023-11-23-12-44-39.mp4";
 
@@ -66,14 +38,14 @@ class _ETVideoPlayerViewState extends State<ETVideoPlayerView> {
 
   void setVideoPlayer() {
     _videoPlayerController =
-    VideoPlayerController.networkUrl(Uri.parse(videoUrl))
-      ..initialize().then((_) {
-        print("视频播放器初始化成功");
-        // 确保在初始化视频后显示第一帧，直至在按下播放按钮。
-        setState(() {
-          _videoPlayerController.play();
-        });
-      });
+        VideoPlayerController.networkUrl(Uri.parse(this.widget.videoUrl))
+          ..initialize().then((_) {
+            print("视频播放器初始化成功");
+            // 确保在初始化视频后显示第一帧，直至在按下播放按钮。
+            setState(() {
+              _videoPlayerController.play();
+            });
+          });
     _videoPlayerController!.addListener(() {
       // print(_videoPlayerController.value.duration);
       // print(_videoPlayerController.value.position);
@@ -116,17 +88,17 @@ class _ETVideoPlayerViewState extends State<ETVideoPlayerView> {
     return Scaffold(
       appBar: AppBar(title: Text("视频播放")),
       body: Container(
-        // width: double.infinity,
-        // height: 350,
-        // color: Colors.grey,
+          // width: double.infinity,
+          // height: 350,
+          // color: Colors.grey,
           child: Stack(
-            // mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              createVideoView(),//视频界面
-              buildBottomSliderView(),//底部的进度条
-              buildFastAndBackView(),//快进和后退按钮
-            ],
-          )),
+        // mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          createVideoView(), //视频界面
+          buildBottomSliderView(), //底部的进度条
+          buildFastAndBackView(), //快进和后退按钮
+        ],
+      )),
     );
   }
 
@@ -144,10 +116,12 @@ class _ETVideoPlayerViewState extends State<ETVideoPlayerView> {
                 child: GestureDetector(
                   onTap: () {
                     //添加点击事件
-                    Duration positionTime = _videoPlayerController.value.position;
+                    Duration positionTime =
+                        _videoPlayerController.value.position;
                     int positionSeconds = positionTime.inSeconds;
                     setState(() {
-                      _videoPlayerController.seekTo(Duration(seconds: positionSeconds-15));
+                      _videoPlayerController
+                          .seekTo(Duration(seconds: positionSeconds - 15));
                     });
                   },
                   child: Container(
@@ -166,10 +140,12 @@ class _ETVideoPlayerViewState extends State<ETVideoPlayerView> {
                 child: GestureDetector(
                   onTap: () {
                     //添加点击事件
-                    Duration positionTime = _videoPlayerController.value.position;
+                    Duration positionTime =
+                        _videoPlayerController.value.position;
                     int positionSeconds = positionTime.inSeconds;
                     setState(() {
-                      _videoPlayerController.seekTo(Duration(seconds: positionSeconds+15));
+                      _videoPlayerController
+                          .seekTo(Duration(seconds: positionSeconds + 15));
                     });
                   },
                   child: Container(
@@ -185,7 +161,6 @@ class _ETVideoPlayerViewState extends State<ETVideoPlayerView> {
                 ),
               ),
             ],
-
           ),
         ));
   }
@@ -221,8 +196,7 @@ class _ETVideoPlayerViewState extends State<ETVideoPlayerView> {
                   clipBehavior: Clip.hardEdge,
                   decoration: const BoxDecoration(shape: BoxShape.circle),
                   child: Container(
-                    child:
-                    Icon(_isPlaying ? Icons.pause : Icons.play_arrow),
+                    child: Icon(_isPlaying ? Icons.pause : Icons.play_arrow),
                     width: 30,
                     height: 30,
                     color: Colors.white60,
@@ -248,8 +222,22 @@ class _ETVideoPlayerViewState extends State<ETVideoPlayerView> {
               GestureDetector(
                 onTap: () {
                   print("点击了全屏");
-                  //添加点击事件
-                  setState(() {});
+
+                  // Navigator.of(context)
+                  //     .push(MaterialPageRoute(builder: (context) {
+                  //   return ETVideoFullPage(
+                  //     controller: _videoPlayerController,
+                  //   );
+                  // }));
+                  //push去掉动画
+                  Navigator.push(context, PageRouteBuilder(pageBuilder: (_, __, ___) =>
+                      ETVideoFullPage(
+                        controller: _videoPlayerController,
+                      ),
+                    transitionDuration: Duration(seconds: 0),
+                  ),
+                  );
+
                 },
                 child: Container(
                   clipBehavior: Clip.hardEdge,
@@ -311,20 +299,170 @@ class _ETVideoPlayerViewState extends State<ETVideoPlayerView> {
         });
       },
       child: Container(
-        height: 230,
+        height: widget.videoHeight,
+        width: widget.videoWidth,
         color: Colors.grey,
         child: _videoPlayerController.value.isInitialized
             ? AspectRatio(
-          aspectRatio: _videoPlayerController.value.aspectRatio,
-          child: VideoPlayer(_videoPlayerController),
-        )
+                aspectRatio: _videoPlayerController.value.aspectRatio,
+                child: VideoPlayer(_videoPlayerController),
+              )
             : Container(
-          width: double.infinity,
-          height: 230,
-          color: Colors.grey,
-          child: Text("视频正在缓冲"),
-        ),
+                width: double.infinity,
+                height: 230,
+                color: Colors.grey,
+                child: Text("视频正在缓冲"),
+              ),
       ),
     );
+  }
+}
+
+class ETVideoFullPage extends StatefulWidget {
+  VideoPlayerController controller;
+
+  ETVideoFullPage({super.key, required this.controller});
+
+  // const ETVideoFullPage({Key? key}) : super(key: key);
+
+  @override
+  State<ETVideoFullPage> createState() => _ETVideoFullPageState();
+}
+
+class _ETVideoFullPageState extends State<ETVideoFullPage> {
+  bool _isPlaying = true;
+  String _lastTime = "";
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Timer.periodic(Duration(seconds: 1), (timer) {
+      getLastTime();
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Stack(
+        children: [
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).pop();
+            },
+            child: Container(
+              width: 44,
+              height: 44,
+              child: Icon(Icons.arrow_back),
+              color: Colors.white60,
+            ),
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Center(
+                child: Container(
+                  child: AspectRatio(
+                    aspectRatio: this.widget.controller.value.aspectRatio,
+                    child: VideoPlayer(this.widget.controller),
+                  ),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: 5,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      //添加点击事件
+                      setState(() {
+                        _isPlaying = !_isPlaying;
+                        widget.controller.value.isPlaying
+                            ? widget.controller.pause()
+                            : widget.controller.play();
+                      });
+                    },
+                    child: Container(
+                      clipBehavior: Clip.hardEdge,
+                      decoration: const BoxDecoration(shape: BoxShape.circle),
+                      child: Container(
+                        child:
+                            Icon(_isPlaying ? Icons.pause : Icons.play_arrow),
+                        width: 30,
+                        height: 30,
+                        color: Colors.white60,
+                      ),
+                    ),
+                  ),
+
+                  Expanded(
+                    child: VideoProgressIndicator(
+                      widget.controller,
+                      allowScrubbing: true,
+                      colors: VideoProgressColors(
+                          backgroundColor: Colors.grey,
+                          bufferedColor: Colors.white,
+                          playedColor: Colors.red),
+                    ),
+                  ),
+                  Container(
+                    width: 65,
+                    alignment: Alignment.center,
+                    child: Text(
+                      "$_lastTime",
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.white,
+                        decoration: TextDecoration.none,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
+  //获取最后剩余时间
+  void getLastTime() {
+    Duration totalTime = widget.controller.value.duration;
+    int totalSeconds = totalTime.inSeconds;
+    Duration positionTime = widget.controller.value.position;
+    int positionSeconds = positionTime.inSeconds;
+    int lastSeconds = totalSeconds - positionSeconds;
+    int hour = (lastSeconds / 3600).floor();
+    String hourStr = "${hour}";
+    if (hour < 10) {
+      hourStr = "0$hourStr";
+    }
+
+    int minute = ((lastSeconds % 3600) / 60).floor();
+    String minStr = "${minute}";
+    if (minute < 10) {
+      minStr = "0$minStr";
+    }
+    int second = (lastSeconds % 60).floor();
+    String secStr = "${second}";
+    if (second < 10) {
+      secStr = "0$secStr";
+    }
+    // print("当前剩余时间${hourStr}:${minStr}:${secStr}") ;
+    if (mounted) {
+      setState(() {
+        _lastTime = "${hourStr}:${minStr}:${secStr}";
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
   }
 }
