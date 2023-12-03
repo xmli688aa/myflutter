@@ -7,7 +7,10 @@ class ETSubjectPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ETNavigationBar(backgroundColor: Colors.yellow,title: Text("属性表"),),
+      appBar: AppBar(
+        title: Text("书影音"),
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+      ),
       body: Center(
         child: Text("书影音"),
       ),

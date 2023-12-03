@@ -9,9 +9,19 @@ class ETHomePageContent extends StatefulWidget {
 
 class _ETHomePageContentState extends State<ETHomePageContent> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text("hello world"),
-    );
+    return ListView.builder(
+        itemCount: 30,
+        itemBuilder: (ctx, index) {
+          return ListTile(
+            title: Text("hello $index"),
+          );
+        });
   }
 }

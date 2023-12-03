@@ -15,7 +15,7 @@ class _ETHomePageState extends State<ETHomePage> {
     return  Scaffold(
         appBar: AppBar(
           title: Text("首页"),
-          backgroundColor: Colors.green,
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         ),
         body: ETHomePageContent(),
     );

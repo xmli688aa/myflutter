@@ -11,7 +11,7 @@ class ETMainPage extends StatefulWidget {
 }
 
 class _ETMainPageState extends State<ETMainPage> {
-  Color themeColor = Colors.redAccent;
+  Color themeColor = Colors.green;
   int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {

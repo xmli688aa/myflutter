@@ -16,7 +16,8 @@ class MyApp extends StatelessWidget {
 
       title: "Dou Ban",
       theme: ThemeData(
-
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+        useMaterial3: true,
       ),
       home:Scaffold(
         // appBar: AppBar(
