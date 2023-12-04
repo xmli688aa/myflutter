@@ -104,27 +104,49 @@ class ETHomeMovieItem extends StatelessWidget {
   }
 
   Widget getTitleWidget() {
-    return const Text.rich(TextSpan(
-      children: [
-        WidgetSpan(
-            child: Icon(
-              Icons.play_circle_outline,
-              color: Colors.red,
-              size: 30,
-            ),
-            alignment: PlaceholderAlignment.middle),
-        WidgetSpan(
-            child: Text(
-              "肖申克的救赎",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-            alignment: PlaceholderAlignment.middle),
-        WidgetSpan(
-            child: Text("(1994)",
-                style: TextStyle(fontSize: 16, color: Colors.black54)),
-            alignment: PlaceholderAlignment.middle),
-      ],
-    ));
+    List<InlineSpan> spans = [];
+    //先添加第一个icon Widget
+    InlineSpan span0 = const WidgetSpan(
+        child: Icon(
+          Icons.play_circle_outline,
+          color: Colors.red,
+          size: 30,
+        ),
+        alignment: PlaceholderAlignment.middle);
+    spans.add(span0);
+
+    //这里对文字遍历 然后每个文字作为一个widget 放到数组中
+    //遍历文字的两种方式
+    List listStr = "申克的救赎gheka哈哈".split("");
+    // print(listStr);
+  "申克的救赎gheka哈哈".split("").map((e){
+      InlineSpan widget = WidgetSpan(
+          child: Text(
+            e,
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          ),
+          alignment: PlaceholderAlignment.middle);
+      spans.add(widget);
+    }).toList();
+   
+    //遍历文字的方式2
+    // "肖申克的救赎哈哈哈哈哈哈".runes.map((e) {
+    //   // print(String.fromCharCode(e));
+    //   InlineSpan widget = WidgetSpan(
+    //       child: Text(
+    //         String.fromCharCode(e),
+    //         style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+    //       ),
+    //       alignment: PlaceholderAlignment.middle);
+    //   spans.add(widget);
+    // }).toList();
+    //添加最后一个时间的Widget
+    InlineSpan span2 = const WidgetSpan(
+        child: Text("(1994)",
+            style: TextStyle(fontSize: 16, color: Colors.black54)),
+        alignment: PlaceholderAlignment.middle);
+    spans.add(span2);
+    return Text.rich(TextSpan(children: spans),maxLines: 2,overflow: TextOverflow.ellipsis,);
   }
 
   Widget getRatingWidget() {
