@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:my_app/douban/home/home_movie_item.dart';
 import 'package:my_app/douban/home/home_request.dart';
 
 class ETHomePageContent extends StatefulWidget {
@@ -23,9 +24,10 @@ class _ETHomePageContentState extends State<ETHomePageContent> {
     return ListView.builder(
         itemCount: 30,
         itemBuilder: (ctx, index) {
-          return ListTile(
-            title: Text("hello $index"),
-          );
+          return ETHomeMovieItem();
         });
   }
+
+
+
 }
