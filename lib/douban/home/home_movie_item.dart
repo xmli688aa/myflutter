@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:my_app/douban/utils/log.dart';
 
 import '../widgets/dashed_line.dart';
 import '../widgets/star_rating.dart';
@@ -114,7 +115,8 @@ class ETHomeMovieItem extends StatelessWidget {
         ),
         alignment: PlaceholderAlignment.middle);
     spans.add(span0);
-
+    nsLog("hihi个危害后果IE哇hi额还哈IG哇hi额哇嘎hi啊", StackTrace.current);
+    nsLog({"message":"就哦估计额外价格哦王哦好哦挂哇哈哦给我饿啊哈哦吼","messag2e":"就哦估计额外价格哦王哦好哦挂哇哈哦给我饿啊哈哦吼"}, StackTrace.current);
     //这里对文字遍历 然后每个文字作为一个widget 放到数组中
     //遍历文字的两种方式
     List listStr = "申克的救赎gheka哈哈".split("");
