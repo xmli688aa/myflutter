@@ -1,4 +1,6 @@
+
 import 'package:flutter/material.dart';
+import 'package:my_app/douban/home/home_request.dart';
 
 class ETHomePageContent extends StatefulWidget {
   const ETHomePageContent({Key? key}) : super(key: key);
@@ -12,6 +14,8 @@ class _ETHomePageContentState extends State<ETHomePageContent> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    //发送网络请求
+    HomeRequest.requestMovieList(0);
   }
 
   @override

@@ -17,8 +17,8 @@ List<ETBottomBarItem> bottomNavigationbarItems =[
 List<Widget> pages = [
   ETHomePage(),
   ETSubjectPage(),
-  ETHomePage(),
-  ETHomePage(),
-  ETHomePage(),
+  ETSubjectPage(),
+  ETSubjectPage(),
+  ETSubjectPage(),
 
 ];

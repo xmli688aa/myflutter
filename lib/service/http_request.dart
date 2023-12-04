@@ -8,7 +8,8 @@ class HttpRequest {
       baseUrl: HttpConfig.baseUrl,
       connectTimeout: const Duration(seconds: HttpConfig.timeout),
     //这里可以配置通用的headers 或者设置token
-    headers: {"Authorization":"commonAuthor"}
+    //   headers:{"Content-Type":"application/json"},
+    // headers: {"Authorization":"commonAuthor"}
   );
   static final Dio dio = Dio(baseOptions);
 

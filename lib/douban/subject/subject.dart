@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:my_app/douban/main/navigation_bar.dart';
 
@@ -12,7 +14,32 @@ class ETSubjectPage extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: Center(
-        child: Text("书影音"),
+        child: Column(
+          children: [
+            Container(
+              width: 100,
+              height: 100,
+              decoration: BoxDecoration(
+                color: Colors.lightGreen,
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Image.asset(
+                "assets/images/headerIcon.jpg",
+                width: 200,
+                height: 200,
+                fit: BoxFit.fill,
+              ),
+            ),
+            // CircleAvatar(
+            //   radius: 100,
+            //   backgroundImage: NetworkImage(imageUrl),
+            //   // child: _image2,
+            // ),
+          ],
+        ),
       ),
     );
   }
