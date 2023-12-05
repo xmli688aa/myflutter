@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/videoplayer/et_videoplayer_custom.dart';
+import 'package:my_app/douban/utils/log.dart';
 
 void main() {
   //1.Flutter启动需要执行runApp函数
@@ -22,7 +22,7 @@ class MYHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return HomePageContent();
+    return const HomePageContent();
   }
 }
 
@@ -34,13 +34,17 @@ class HomePageContent extends StatefulWidget {
 }
 
 class _HomePageContentState extends State<HomePageContent> {
-  final String videoUrl =
-      "https://live163.ws.126.net/record-live-20c47a984a2ef30cd6029e44bd525a52-2023-11-23-10-44-39_2023-11-23-12-44-39.mp4";
 
   @override
   Widget build(BuildContext context) {
-    return ETVideoPlayerView(videoUrl: videoUrl,);
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Test"),
+        backgroundColor: Colors.blue,
+      ),
+      body: Center(
+        child: Text("hello world")
+      ),
+    );
   }
 }
-
-
