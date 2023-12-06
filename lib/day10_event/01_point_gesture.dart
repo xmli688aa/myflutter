@@ -59,7 +59,7 @@ class HYHomePage extends StatelessWidget {
 
 class GestureDemo extends StatelessWidget {
   const GestureDemo({
-    Key key,
+    required Key key,
   }) : super(key: key);
 
   @override
@@ -98,7 +98,7 @@ class GestureDemo extends StatelessWidget {
 
 class ListenerDemo extends StatelessWidget {
   const ListenerDemo({
-    Key key,
+    required Key key,
   }) : super(key: key);
 
   @override
