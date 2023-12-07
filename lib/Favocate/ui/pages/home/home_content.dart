@@ -3,6 +3,7 @@ import 'package:my_app/Favocate/core/services/json_parse.dart';
 import 'package:my_app/day14_screenfit/extension/int_extension.dart';
 
 import '../../../core/model/category_model.dart';
+import 'category_item.dart';
 
 class HYHomeContent extends StatefulWidget {
   const HYHomeContent({Key? key}) : super(key: key);
@@ -37,23 +38,8 @@ class _HYHomeContentState extends State<HYHomeContent> {
             mainAxisSpacing: 20.px,
             crossAxisSpacing: 20.px),
         itemBuilder: (ctx, index) {
-          return Container(
-            decoration: BoxDecoration(
-              color: Colors.red,
-              gradient: LinearGradient(colors: [
-                _categories[index].cColor.withOpacity(0.5),
-                _categories[index].cColor,
-              ]),
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: Center(
-                child: Text(
-              "${_categories[index].title}",
-              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                fontWeight: FontWeight.bold
-              ),
-            )),
-          );
+          return HYHomeCategoryItem(_categories[index]);
         });
   }
 }
+
