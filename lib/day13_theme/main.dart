@@ -9,8 +9,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: HYAppTheme.norTheme,
-      darkTheme: HYAppTheme.darkTheme,
+      theme: CustomAppTheme.norTheme,
+      darkTheme: CustomAppTheme.darkTheme,
       home: HYHomePage(),
     );
   }
