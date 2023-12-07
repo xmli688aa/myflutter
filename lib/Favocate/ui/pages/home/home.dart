@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/Favocate/ui/pages/home/home_content.dart';
 
 
 class HYHomeScreen extends StatelessWidget {
@@ -7,10 +8,9 @@ class HYHomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("美食广场"),
+        backgroundColor: Colors.pink,
       ),
-      body: Center(
-        child: Text("sssss"),
-      ),
+      body: HYHomeContent(),
     );
   }
 }
