@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 class HYFavorScreen extends StatelessWidget {
   static const String routeName = "./HYFavorScreen";
+
+  const HYFavorScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/Favocate/core/router/router.dart';
-import 'package:my_app/Favocate/ui/shared/app_theme.dart';
+import 'package:my_app/Favorcate/core/router/router.dart';
+import 'package:my_app/Favorcate/core/viewmodel/meal_view_model.dart';
+import 'package:my_app/Favorcate/ui/shared/app_theme.dart';
+import 'package:provider/provider.dart';
 
 import '../day14_screenfit/shared/size_fit.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (ctx) => HYMealViewModel(),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {

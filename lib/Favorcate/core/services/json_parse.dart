@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
-import 'package:my_app/Favocate/core/model/category_model.dart';
+import 'package:my_app/Favorcate/core/model/category_model.dart';
 
 class JsonParse {
   static Future<List<HYCategoryModel>> getCategoryData() async {

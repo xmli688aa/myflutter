@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/Favocate/ui/pages/home/home_content.dart';
+import 'package:my_app/Favorcate/ui/pages/home/home_content.dart';
 
 
 class HYHomeScreen extends StatelessWidget {

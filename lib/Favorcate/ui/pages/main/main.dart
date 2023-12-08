@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'initialize_items.dart';
 class HYMainScreen extends StatefulWidget {
   static const String routeName = "/";
+
+  const HYMainScreen({super.key});
   @override
   _HYMainScreenState createState() => _HYMainScreenState();
 }
