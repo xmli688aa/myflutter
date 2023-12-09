@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/Favorcate/core/model/meal_model.dart';
+import 'package:my_app/Favorcate/ui/pages/detail/detail_content.dart';
 import 'package:my_app/Favorcate/ui/shared/app_theme.dart';
 
 class HYDetailScreen extends StatelessWidget {
@@ -14,11 +15,18 @@ class HYDetailScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("${mealModel.title}"),
+        title: Text("${mealModel.title}",style: TextStyle(color: Colors.white),),
         backgroundColor: HYAppTheme.navigationBGColor,
       ),
-      body: Center(
-        child: Text("美食"),
+      body: HYDetailContent(mealModel),
+      floatingActionButton: GestureDetector(
+        onTap: (){
+          print("点击了收藏");
+        },
+        child: CircleAvatar(
+            backgroundColor: Colors.amber,
+          child: Icon(Icons.favorite_border,color: Colors.black,),
+        ),
       ),
     );
   }
