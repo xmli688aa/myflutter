@@ -6,6 +6,8 @@ import 'package:my_app/Favorcate/core/model/meal_model.dart';
 import 'package:my_app/Favorcate/core/viewmodel/meal_view_model.dart';
 import 'package:provider/provider.dart';
 
+import '../../widgets/meal_item.dart';
+
 class HYMealContent extends StatelessWidget {
   HYCategoryModel categoryModel;
 
@@ -27,7 +29,7 @@ class HYMealContent extends StatelessWidget {
             itemCount: meals.length,
             itemBuilder: (ctx, index) {
               HYMealModel model = meals[index];
-              return Text("${model.title}");
+              return HYMealItem(model);
             });
       },
     );

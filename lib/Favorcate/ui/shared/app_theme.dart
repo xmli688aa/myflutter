@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class HYAppTheme {
+  //导航栏背景色
+  static const Color navigationBGColor = Colors.pink;
+
   // 1.共有属性
 
   static const double smallFontSize = 12;
