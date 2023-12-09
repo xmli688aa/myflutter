@@ -3,6 +3,9 @@ import 'package:my_app/Favorcate/core/model/meal_model.dart';
 import 'package:my_app/Favorcate/ui/pages/detail/detail.dart';
 import 'package:my_app/Favorcate/ui/widgets/operation_item.dart';
 import 'package:my_app/day14_screenfit/extension/int_extension.dart';
+import 'package:provider/provider.dart';
+
+import '../../core/viewmodel/favor_view_model.dart';
 
 final _cardRadius = 12.px;
 
@@ -19,7 +22,8 @@ class HYMealItem extends StatelessWidget {
       //阴影
       elevation: 5,
       //card的圆角
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(_cardRadius)),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(_cardRadius)),
       child: Column(
         children: [
           buildBasicInfo(context),
@@ -31,15 +35,17 @@ class HYMealItem extends StatelessWidget {
 
   Widget buildBasicInfo(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-        Navigator.of(context).pushNamed(HYDetailScreen.routeName,arguments: _mealModel);
+      onTap: () {
+        Navigator.of(context)
+            .pushNamed(HYDetailScreen.routeName, arguments: _mealModel);
       },
       child: Stack(children: [
-
-        ClipRRect(//裁剪图片控件
+        ClipRRect(
+          //裁剪图片控件
           //裁剪图片 只裁剪左上，右上
           borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(_cardRadius), topRight: Radius.circular(_cardRadius)),
+              topLeft: Radius.circular(_cardRadius),
+              topRight: Radius.circular(_cardRadius)),
           child: Image.network(
             this._mealModel.imageUrl,
             fit: BoxFit.cover,
@@ -51,14 +57,18 @@ class HYMealItem extends StatelessWidget {
             bottom: 10.px,
             right: 10.px,
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 10.px,vertical: 5.px),//水平方向加10垂直方向加5
+              padding: EdgeInsets.symmetric(horizontal: 10.px, vertical: 5.px),
+              //水平方向加10垂直方向加5
               width: 300.px,
-              decoration:  BoxDecoration(
+              decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5.px),
                 color: Colors.black54,
               ),
               child: Text(this._mealModel.title,
-                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white)),
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyLarge
+                      ?.copyWith(color: Colors.white)),
             ))
       ]),
     );
@@ -73,9 +83,34 @@ class HYMealItem extends StatelessWidget {
         children: [
           HYOperationItem(Icon(Icons.schedule), "${_mealModel.duration}分钟"),
           HYOperationItem(Icon(Icons.restaurant), "${_mealModel.complexStr}"),
-          HYOperationItem(Icon(Icons.favorite), "未收藏"),
+          buildFavorItem(),
         ],
       ),
     );
+  }
+  Widget buildFavorItem(){
+    return Consumer<HYFavorViewModel>(builder: (ctx, favorVM, child) {
+      //1.判断是否是收藏状态
+      final isFavor = favorVM.isFavor(_mealModel);
+      final favorColor = isFavor?Colors.red:Colors.black;
+      final icon = isFavor
+          ? Icon(
+        Icons.favorite,
+        color: favorColor,
+      )
+          : Icon(Icons.favorite_border, color: favorColor);
+
+      return GestureDetector(
+          onTap: () {
+            print("点击了收藏");
+            if (isFavor) {
+              favorVM.removeMeal(_mealModel);
+            } else {
+              favorVM.addMeal(_mealModel);
+            }
+          },
+          child: HYOperationItem(icon, isFavor ? "收藏" : "未收藏",textColor: favorColor,)
+      );
+    });
   }
 }

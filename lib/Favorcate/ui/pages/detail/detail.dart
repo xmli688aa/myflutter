@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/Favorcate/core/model/meal_model.dart';
+import 'package:my_app/Favorcate/core/viewmodel/favor_view_model.dart';
 import 'package:my_app/Favorcate/ui/pages/detail/detail_content.dart';
 import 'package:my_app/Favorcate/ui/shared/app_theme.dart';
+import 'package:provider/provider.dart';
 
 class HYDetailScreen extends StatelessWidget {
   static const String routeName = "/HYDetailScreen";
@@ -19,14 +21,26 @@ class HYDetailScreen extends StatelessWidget {
         backgroundColor: HYAppTheme.navigationBGColor,
       ),
       body: HYDetailContent(mealModel),
-      floatingActionButton: GestureDetector(
-        onTap: (){
-          print("点击了收藏");
+      floatingActionButton: Consumer<HYFavorViewModel>(
+        builder: (ctx,favorVM,child){
+          //1.判断是否是收藏状态
+          final isFavor = favorVM.isFavor(mealModel);
+          final icon = isFavor?Icon(Icons.favorite,color: Colors.red,):Icon(Icons.favorite_border,color: Colors.black);
+          return GestureDetector(
+            onTap: (){
+              print("点击了收藏");
+                if(isFavor){
+                  favorVM.removeMeal(mealModel);
+                }else{
+                  favorVM.addMeal(mealModel);
+                }
+            },
+            child: CircleAvatar(
+              backgroundColor: Colors.amber,
+              child: icon,
+            ),
+          );
         },
-        child: CircleAvatar(
-            backgroundColor: Colors.amber,
-          child: Icon(Icons.favorite_border,color: Colors.black,),
-        ),
       ),
     );
   }

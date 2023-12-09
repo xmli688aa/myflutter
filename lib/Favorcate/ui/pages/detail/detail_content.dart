@@ -24,7 +24,10 @@ class HYDetailContent extends StatelessWidget {
 
   //1.横幅图片
   Widget buildBannerImage() {
-    return Container(child: Image.network(_mealModel.imageUrl));
+    return Container(
+      width: double.infinity,
+        child: Image.network(_mealModel.imageUrl)
+    );
   }
 
 //  2.制作材料
