@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_app/Favorcate/core/model/meal_model.dart';
 import 'package:my_app/Favorcate/ui/pages/detail/detail.dart';
 import 'package:my_app/Favorcate/ui/widgets/operation_item.dart';
-import 'package:my_app/day14_screenfit/extension/int_extension.dart';
+import 'package:my_app/14_screenfit/extension/int_extension.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/viewmodel/favor_view_model.dart';

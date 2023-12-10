@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/Favorcate/core/services/json_parse.dart';
-import 'package:my_app/day14_screenfit/extension/int_extension.dart';
+import 'package:my_app/14_screenfit/extension/int_extension.dart';
 
 import '../../../core/model/category_model.dart';
 import 'category_item.dart';

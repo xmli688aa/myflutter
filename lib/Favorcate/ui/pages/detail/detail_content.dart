@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/Favorcate/core/model/meal_model.dart';
-import 'package:my_app/day14_screenfit/extension/int_extension.dart';
+import 'package:my_app/14_screenfit/extension/int_extension.dart';
 
 class HYDetailContent extends StatelessWidget {
   final HYMealModel _mealModel;

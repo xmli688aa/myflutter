@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/day11_router/router/routes.dart';
+import 'package:my_app/11_router/router/routes.dart';
 import 'about.dart';
 import 'detail.dart';
 

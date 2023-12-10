@@ -1,7 +1,7 @@
 // routes.dart
 import 'package:flutter/material.dart';
-import 'package:my_app/day11_router/detail.dart';
-import 'package:my_app/day11_router/unknown.dart';
+import 'package:my_app/11_router/detail.dart';
+import 'package:my_app/11_router/unknown.dart';
 import '../about.dart';
 import '../main.dart';
 

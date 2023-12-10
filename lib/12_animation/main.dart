@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/day12_animation/pages/image_detail.dart';
-import 'package:my_app/day12_animation/pages/model_page.dart';
+import 'package:my_app/12_animation/pages/image_detail.dart';
+import 'package:my_app/12_animation/pages/model_page.dart';
 
 void main() => runApp(MyApp());
 

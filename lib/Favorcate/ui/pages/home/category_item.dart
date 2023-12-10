@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/Favorcate/ui/pages/detail/detail.dart';
-import 'package:my_app/day14_screenfit/extension/int_extension.dart';
+import 'package:my_app/14_screenfit/extension/int_extension.dart';
 
 import '../../../core/model/category_model.dart';
 import '../meal/meal.dart';

@@ -1,7 +1,7 @@
-
-import 'package:my_app/day03-dart%E4%B8%AD%E7%9A%84%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C/service/http_request.dart';
 import 'package:flutter/material.dart';
-import 'package:dio/dio.dart';
+import 'package:flutter/services.dart';
+import 'dart:convert';
+import 'package:my_app/03_dart中的异步操作/et_persion.dart';
 void main() {
   //1.Flutter启动需要执行runApp函数
   runApp(const MyApp());
@@ -23,7 +23,7 @@ class MYHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("网络请求")),
+      appBar: AppBar(title: Text("获取本地json文件数据")),
       body: const HomePageContent(),
     );
   }
@@ -41,32 +41,33 @@ class _HomePageContentState extends State<HomePageContent> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    //发送网络请求
-    // //1创建dio
-    // final dio = Dio();
-    // dio.get("https://httpbin.org/get").then((res){
-    //   print(res);
-    // });
-    // dio.post("https://httpbin.org/post").then((res){
-    //   print(res);
-    // });
-    HttpRequest.request(url: "https://httpbin.org/get", params: {"name":"张三","age":11},
-      // headers: {"nameeee":"lilili"},
-      //   inter: InterceptorsWrapper(
-      // onResponse: (options,handler){
-      //   print("单独拦截响应：${options}");
-      //   return handler.next(options);
-      // })
-    ).then((value){
+    getAnchors().then((value) {
+      print("获取到了本地json数据");
+      for (ETPersion anchor in value) {
+        print(anchor.nickname);
+      }
       // print(value);
     });
-    HttpRequest.postRequest(url: "https://httpbin.org/post", params: {"name":"zez"}).then((value){
-
-    });
-
   }
+
   @override
   Widget build(BuildContext context) {
     return Text("hello world");
   }
 }
+
+Future<List<ETPersion>> getAnchors() async {
+  //1.获取json文件
+  String jsonString = await rootBundle.loadString("assets/files/yz.json");
+  // 2.将jsonString转成List或者Map类型
+  final jsonResult = jsonDecode(jsonString);
+  // 3.遍历List 转成Anchor对象 放到另一个List中
+  List<ETPersion> listAnchors = [];
+  for (Map<String, dynamic> element in jsonResult) {
+    // listAnchors.add(Anchor.withMap(element));
+    //这里直接使用fromJson方法就可以转成模型
+    listAnchors.add(ETPersion.formJson(element));
+  }
+  return listAnchors;
+}
+

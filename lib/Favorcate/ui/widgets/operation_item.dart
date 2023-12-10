@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/day14_screenfit/extension/int_extension.dart';
+import 'package:my_app/14_screenfit/extension/int_extension.dart';
 
 class HYOperationItem extends StatelessWidget {
   final Widget _icon;

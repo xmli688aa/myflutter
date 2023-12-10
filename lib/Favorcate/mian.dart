@@ -5,7 +5,7 @@ import 'package:my_app/Favorcate/core/viewmodel/meal_view_model.dart';
 import 'package:my_app/Favorcate/ui/shared/app_theme.dart';
 import 'package:provider/provider.dart';
 
-import '../day14_screenfit/shared/size_fit.dart';
+import '../14_screenfit/shared/size_fit.dart';
 
 void main() {
   runApp(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/day09_%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/viewmodel/counter_view_model.dart';
-import 'package:my_app/day09_%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/viewmodel/initialize_providers.dart';
-import 'package:my_app/day09_%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/viewmodel/user_view_model.dart';
+import 'package:my_app/09_%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/viewmodel/counter_view_model.dart';
+import 'package:my_app/09_%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/viewmodel/initialize_providers.dart';
+import 'package:my_app/09_%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/viewmodel/user_view_model.dart';
 import 'package:provider/provider.dart';
 
 void main() {

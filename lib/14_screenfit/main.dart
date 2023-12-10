@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'shared/size_fit.dart';
-import './extension/double_extension.dart';
 import './extension/int_extension.dart';
 
 void main() => runApp(MyApp());
