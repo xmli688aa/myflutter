@@ -9,9 +9,8 @@ class HYHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: HYHomeAppBar(),
+      appBar: HYHomeAppBar(context),
       body: HYHomeContent(),
-      drawer:HYHomeDrawer(),
     );
   }
 }
