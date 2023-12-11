@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_app/11_router/unknown.dart';
 import 'package:my_app/Favorcate/ui/pages/detail/detail.dart';
 import 'package:my_app/Favorcate/ui/pages/favor/favor.dart';
+import 'package:my_app/Favorcate/ui/pages/filter/filter.dart';
 
 import 'package:my_app/Favorcate/ui/pages/main/main.dart';
 
@@ -13,26 +14,28 @@ class HYRouter {
   static final Map<String, WidgetBuilder> routes = {
     HYMainScreen.routeName: (ctx) => const HYMainScreen(),
     HYFavorScreen.routeName: (ctx) => const HYFavorScreen(),
-    HYDetailScreen.routeName: (ctx) =>  const HYDetailScreen(),
-    HYMealScreen.routeName: (ctx)=> const HYMealScreen(),
+    HYDetailScreen.routeName: (ctx) => const HYDetailScreen(),
+    HYMealScreen.routeName: (ctx) => const HYMealScreen(),
   };
 
-  // 自己扩展（一般是页面传参问题，比如创建页面需要带参数）
-  static final RouteFactory generateRoute = (settings) {
+  // 自己扩展（一般是页面传参问题，比如创建页面需要带参数,或者页面弹出样式需要自定义的）
+  //ignore
+  static  RouteFactory generateRoute = (RouteSettings settings) {
+    if (settings.name == HYFilterScreen.routeName) {
+      return MaterialPageRoute(
+        builder: (ctx) {
+          return const HYFilterScreen();
+        },
+        fullscreenDialog: true,
+      );
+    }
     return null;
   };
-  // static final RouteFactory generateRoute = (settings) {
-  //   if (settings.name == ETDetailPage.routeName) {
-  //     return MaterialPageRoute(builder: (ctx) {
-  //       return ETDetailPage(settings.arguments as String);
-  //     });
-  //   }
-  //   return null;
-  // };
+
   //未知页面的路由
-  static final RouteFactory unknownRoute = (settings) {
-    return MaterialPageRoute(builder: (ctx){
-      return HYUnknownPage();
+  static  RouteFactory unknownRoute = (settings) {
+    return MaterialPageRoute(builder: (ctx) {
+      return const HYUnknownPage();
     });
   };
 }

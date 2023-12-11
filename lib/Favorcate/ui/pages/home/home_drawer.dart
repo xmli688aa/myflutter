@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/14_screenfit/extension/int_extension.dart';
+import 'package:my_app/Favorcate/ui/pages/filter/filter.dart';
 
 class HYHomeDrawer extends StatelessWidget {
   const HYHomeDrawer({Key? key}) : super(key: key);
@@ -25,7 +26,7 @@ class HYHomeDrawer extends StatelessWidget {
                 }),
                 buildListTitle(Icon(Icons.settings ),"过滤",(){
                   Navigator.of(context).pop();
-                  print("点击了过滤");
+                  Navigator.of(context).pushNamed(HYFilterScreen.routeName);
                 }),
 
               ],
