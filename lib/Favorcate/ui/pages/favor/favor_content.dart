@@ -18,10 +18,9 @@ class _HYFavorContentState extends State<HYFavorContent> {
 
     return Consumer<HYFavorViewModel>(
       builder: ( context,  favorViewModel,  child) {
-        List<HYMealModel>  favors = favorViewModel.favorMeals;
-        print("favorViewModel.favorMeals:${favorViewModel.favorMeals}");
-        if(favors.length == 0){
-          return Center(
+        List<HYMealModel>  favors = favorViewModel.meals;
+        if(favors.isEmpty){
+          return const Center(
             child: Text("未收藏美食"),
           );
         }

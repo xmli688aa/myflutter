@@ -15,7 +15,6 @@ class HYMealContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(categoryModel.id);
     return Selector<HYMealViewModel, List<HYMealModel>>(
       selector: (ctx, mealVM) {
         return mealVM.meals

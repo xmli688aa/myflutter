@@ -102,7 +102,6 @@ class HYMealItem extends StatelessWidget {
 
       return GestureDetector(
           onTap: () {
-            print("点击了收藏");
             if (isFavor) {
               favorVM.removeMeal(_mealModel);
             } else {

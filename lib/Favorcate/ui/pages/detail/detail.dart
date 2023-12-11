@@ -28,7 +28,6 @@ class HYDetailScreen extends StatelessWidget {
           final icon = isFavor?Icon(Icons.favorite,color: Colors.red,):Icon(Icons.favorite_border,color: Colors.black);
           return GestureDetector(
             onTap: (){
-              print("点击了收藏");
                 if(isFavor){
                   favorVM.removeMeal(mealModel);
                 }else{

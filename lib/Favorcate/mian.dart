@@ -19,14 +19,12 @@ void main() {
       ChangeNotifierProxyProvider<HYFilterViewModel,HYMealViewModel>(
           create: (ctx) => HYMealViewModel(),
           update: (ctx, filterVM, mealVM) {
-            print("更新了数据HYMealViewModel");
             mealVM?.updateFilters(filterVM);
             return mealVM as HYMealViewModel;
           }),
       ChangeNotifierProxyProvider<HYFilterViewModel,HYFavorViewModel>(
           create: (ctx) => HYFavorViewModel(),
           update: (ctx, filterVM, favorVM) {
-            print("更新了数据HYFavorViewModel");
             favorVM?.updateFilters(filterVM);
             return favorVM as HYFavorViewModel;
           }),
