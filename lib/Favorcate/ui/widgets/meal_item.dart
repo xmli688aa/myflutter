@@ -46,12 +46,13 @@ class HYMealItem extends StatelessWidget {
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(_cardRadius),
               topRight: Radius.circular(_cardRadius)),
-          child: Image.network(
-            _mealModel.imageUrl,
+          child: FadeInImage.assetNetwork(
+            image:_mealModel.imageUrl,
+            placeholder: 'assets/images/placeholder.gif',
             fit: BoxFit.cover,
             width: double.infinity,
             height: 250.px,
-            errorBuilder: (ctx,error,stick){
+            imageErrorBuilder: (ctx,error,stick){
               return Image.asset("assets/images/errorImage.png");
             },
           ),
