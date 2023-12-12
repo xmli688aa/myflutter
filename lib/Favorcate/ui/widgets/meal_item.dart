@@ -47,10 +47,13 @@ class HYMealItem extends StatelessWidget {
               topLeft: Radius.circular(_cardRadius),
               topRight: Radius.circular(_cardRadius)),
           child: Image.network(
-            this._mealModel.imageUrl,
+            _mealModel.imageUrl,
             fit: BoxFit.cover,
             width: double.infinity,
             height: 250.px,
+            errorBuilder: (ctx,error,stick){
+              return Image.asset("assets/images/errorImage.png");
+            },
           ),
         ),
         Positioned(

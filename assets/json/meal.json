@@ -69,7 +69,7 @@
       "title": "经典汉堡包",
       "affordability": 1,
       "complexity": 0,
-      "imageUrl": "https://cdn.pixabay.com/photo/2014/10/23/18/05/burger-500054_1280.jpg",
+      "imageUrl": "error_url",
       "duration": 45,
       "ingredients": [
         "300克牛扒",
