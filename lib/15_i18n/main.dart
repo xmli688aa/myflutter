@@ -1,7 +1,10 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:my_app/15_i18n/localizations.dart';
 import 'package:my_app/15_i18n/localizations_delegate.dart';
+
+import '../generated/l10n.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,16 +16,14 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       home: HYHomePage(),
       //国际化配置语言
-      supportedLocales:  [
-        Locale("zh"),
-        Locale("en"),
-      ],
+      supportedLocales:  S.delegate.supportedLocales,
       //设置组件也跟着手机语言保持一致
       localizationsDelegates:  [
         GlobalMaterialLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         HYLocalizationsDelegate.delegate,
+        S.delegate
       ],
     );
   }
@@ -33,19 +34,19 @@ class HYHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(HYLocalizations.of(context).title),
+        title: Text(S.of(context).title),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
              Text(
-               HYLocalizations.of(context).hello,
+               S.of(context).hello,
               style: TextStyle(fontSize: 20),
             ),
             ElevatedButton(
               child:  Text(
-                HYLocalizations.of(context).pickTime,
+                S.of(context).pickTime,
                 style: TextStyle(fontSize: 20, color: Colors.black),
               ),
               onPressed: () {
