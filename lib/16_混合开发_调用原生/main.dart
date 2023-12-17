@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 
 void main() {
@@ -30,116 +31,36 @@ class HYHomePage extends StatefulWidget {
 }
 
 class _HYHomePageState extends State<HYHomePage> {
-  File? _imageFile;
-  XFile? _photo;
-  List<XFile> _images = [];
+  //名字需要唯一 一般是域名/功能
+  static const platform = const MethodChannel("codewhy.com/battery");
+  int _level = 0;
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text("调用原生相机"),
-        backgroundColor: Colors.blue,
-      ),
-      body: ListView(
-        children: [
-          Column(
+        appBar: AppBar(
+          title: Text("获取电量信息"),
+          backgroundColor: Colors.blue,
+        ),
+        body: Center(
+          child: Column(
             children: [
-              ElevatedButton(
-                  onPressed: () {
-                    _pickImage();
-                  },
-                  child: Text("选择一张照片")),
-              _imageFile == null
-                  ? Text("请选择一张照片")
-                  : Image.file(
-                      _imageFile!,
-                      width: 300,
-                      height: 300,
-                      fit: BoxFit.cover,
-                    ),
-              ElevatedButton(
-                  onPressed: () {
-                    _pickMultiImage();
-                  },
-                  child: Text("选择多张照片")),
-           GridView.builder(
-                      itemCount: _images.length<9?_images.length + 1:9,
-                      shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                          maxCrossAxisExtent: 150, //item的宽度
-                          mainAxisExtent: 200 //itme的高度
-                          ),
-                      itemBuilder: (BuildContext context, int index) {
-                        if (index == _images.length && _images.length<9) {
-                          return GestureDetector(
-                              onTap: () {
-                                _pickMultiImage();
-                              },
-                              child: Icon(Icons.add));
-                        }
-                        XFile xfile = _images[index];
-
-                        return Image.file(
-                          File(xfile.path),
-                          fit: BoxFit.fill,
-                        );
-                      },
-                    ),
-              ElevatedButton(
-                  onPressed: () {
-                    print("点击了拍照");
-                    _takePhoto();
-                  },
-                  child: Text("拍照")),
-              _photo == null
-                  ? Container()
-                  : Image.file(
-                      File(_photo!.path),
-                      width: 300,
-                      height: 300,
-                      fit: BoxFit.cover,
-                    ),
+              ElevatedButton(onPressed: () {
+                print("获取电量信息");
+                getBatteryInfo();
+              }, child: Text("获取剩余电量")),
+              Text("当前电量$_level")
             ],
-          )
-        ],
-      ),
-    );
+          ),
+        ));
   }
-
-  void _pickImage() async {
-    XFile? file = await ImagePicker().pickImage(
-      source: ImageSource.gallery,
-      maxWidth: 1000.0, // 设置图片最大宽度，间接压缩了图片的体积
-    );
+  void getBatteryInfo()async{
+    final result = await platform.invokeMethod("getBatteryInfo");
     setState(() {
-      if (file != null) {
-        _imageFile = File(file!.path);
-      }
+      _level = result;
     });
   }
 
-  void _pickMultiImage() async {
-    List<XFile> listFiles =
-        await ImagePicker().pickMultiImage(imageQuality: 10);
-    if (listFiles.isNotEmpty) {
-      setState(() {
-        // _images.removeRange(0, _images.length);
-        // _images.clear();
-        // _images.addAll(listFiles);
-        _images.insertAll(0, listFiles);
-      });
-    }
-  }
 
-  void _takePhoto() async {
-    XFile photoFile =
-        await ImagePicker().pickImage(source: ImageSource.camera) as XFile;
-    if (photoFile != null) {
-      setState(() {
-        _photo = photoFile;
-      });
-    }
-  }
 }
