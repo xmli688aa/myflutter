@@ -5,6 +5,8 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:my_app/03_dart中的异步操作/service/http_request.dart';
 class NewsPage extends StatefulWidget {
+  static const String routeName = "/NewsPage";
+
   NewsPage();
 
   _NewsPageState createState() => _NewsPageState();
