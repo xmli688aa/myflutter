@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'tabs/Home.dart';
-import 'tabs/Category.dart';
-import 'tabs/Setting.dart';
+import 'Home.dart';
+import 'Category.dart';
+import 'Setting.dart';
 
 class Tabs extends StatefulWidget {
   final index;
@@ -15,7 +15,7 @@ class _TabsState extends State<Tabs> {
   int _currentIndex = 0;
 
 
-  List _pageList = [
+  final List _pageList = [
     HomePage(),
     CategoryPage(),
     SettingPage(),
@@ -26,7 +26,7 @@ class _TabsState extends State<Tabs> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Flutter App"),
+        title: const Text("Flutter App"),
       ),
       body: _pageList[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(

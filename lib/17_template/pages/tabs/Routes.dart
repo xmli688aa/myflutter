@@ -1,10 +1,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:my_app/17_template/pages/02_%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BEvideoplayer/et_videoplayer_custom.dart';
-import '../pages/03_图片轮播/swipe_page.dart';
-import '../pages/04_本地存储/storage_page.dart';
-import '../pages/Tabs.dart';
-import '../pages/01_下拉刷新_上拉加载/News.dart';
+import '../03_图片轮播/swipe_page.dart';
+import '../04_本地存储/storage_page.dart';
+import 'Tabs.dart';
+import '../01_下拉刷新_上拉加载/News.dart';
 
 //配置路由
 final routes = {
