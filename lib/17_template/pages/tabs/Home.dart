@@ -17,34 +17,22 @@ class _HomePageState extends State<HomePage> {
     return Center(
       child: Column(       
         mainAxisAlignment: MainAxisAlignment.start,
-        children: [                   
-                      ElevatedButton(
-              child: const Text('跳转到下拉刷新，上拉分页加载更多页面'),
-              onPressed: (){
-                  Navigator.pushNamed(context, NewsPage.routeName);
-              },
-            ),
-          ElevatedButton(
-            child: const Text('跳转视频播放页面'),
-            onPressed: (){
-              Navigator.pushNamed(context, ETVideoPlayerView.routeName);
-            },
-          ),
-          ElevatedButton(
-            child: const Text('轮播图card_swiper的使用'),
-            onPressed: (){
-              Navigator.pushNamed(context, ETSwiperPage.routeName);
-            },
-          ),
-          ElevatedButton(
-            child: const Text('数据本地存储'),
-            onPressed: (){
-              Navigator.pushNamed(context, ETStoragePage.routeName);
-            },
-          ),
+        children: [
+          _buildElevatedButton(context,"跳转到下拉刷新，上拉分页加载更多页面",NewsPage.routeName),
+          _buildElevatedButton(context,"跳转视频播放页面",ETVideoPlayerView.routeName),
+          _buildElevatedButton(context,"轮播图card_swiper的使用",ETSwiperPage.routeName),
+          _buildElevatedButton(context,"数据本地存储",ETStoragePage.routeName),
         ],
        
       ),
+    );
+  }
+  Widget _buildElevatedButton(BuildContext context, String title, String routeName){
+   return ElevatedButton(
+      child:  Text(title),
+      onPressed: (){
+        Navigator.pushNamed(context, routeName);
+      },
     );
   }
 }
