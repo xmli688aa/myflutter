@@ -66,7 +66,7 @@ class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         border: Border.all(width: 5, color: Colors.black),
       ),
@@ -82,14 +82,14 @@ class ProductItem extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 8,
           ),
           Text(
             desc,
             style: style2,
           ),
-          SizedBox(
+          const SizedBox(
             height: 8,
           ),
           Image.network(imageURL)

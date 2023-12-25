@@ -13,7 +13,7 @@ class HYAppTheme {
   static const Color textNormalColor = Colors.black87;
 
   // 2.普通模式
-  static final Color norTextColors = Colors.red;
+  static const Color norTextColors = Colors.red;
 
   static final ThemeData norTheme = ThemeData(
       primarySwatch: Colors.pink,
@@ -39,11 +39,11 @@ class HYAppTheme {
       ));
 
   // 3.暗黑模式
-  static final Color darkTextColors = Colors.green;
+  static const Color darkTextColors = Colors.green;
 
   static final ThemeData darkTheme = ThemeData(
       primarySwatch: Colors.grey,
-      textTheme: TextTheme(
-          bodyText1:
+      textTheme: const TextTheme(
+          bodyLarge:
               TextStyle(fontSize: normalFontSize, color: darkTextColors)));
 }

@@ -21,7 +21,7 @@ class HYMealContent extends StatelessWidget {
             .where((meal) => meal.categories.contains(categoryModel.id))
             .toList();
       },
-      shouldRebuild: (prev, next) => !ListEquality().equals(prev, next),
+      shouldRebuild: (prev, next) => !const ListEquality().equals(prev, next),
 
       builder: (ctx, meals, child) {
         return ListView.builder(

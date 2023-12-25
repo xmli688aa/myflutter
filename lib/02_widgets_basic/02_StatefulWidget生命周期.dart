@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: MYHomePageDemo(),
     );
   }
@@ -41,10 +41,10 @@ class _MYHOmePageState extends State<MYHOmePage> {
       floatingActionButton: ElevatedButton(
         onPressed: () {
           setState(() {
-            widgets.insert(0, Text("新增一行Text"));
+            widgets.insert(0, const Text("新增一行Text"));
           });
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }
@@ -53,7 +53,7 @@ class _MYHOmePageState extends State<MYHOmePage> {
 //widget是不加_的 暴露给外部使用的
 class MYHomeContent extends StatefulWidget {
   //这里定义属性 外部传递过来 同时state就可以通过this.widget.属性的方式传递
-  MYHomeContent() {
+  MYHomeContent({super.key}) {
     print("1.调用MYHomeContent的constructor");
   }
 
@@ -97,8 +97,8 @@ class _MYHomeContentState extends State<MYHomeContent> {
     return Column(
       children: [
         Text(
-          "计数：${_counter}",
-          style: TextStyle(fontSize: 20),
+          "计数：$_counter",
+          style: const TextStyle(fontSize: 20),
         ),
         ElevatedButton(
           onPressed: () {
@@ -106,7 +106,7 @@ class _MYHomeContentState extends State<MYHomeContent> {
               _counter++;
             });
           },
-          child: Icon(Icons.add),
+          child: const Icon(Icons.add),
         ),
       ],
     );

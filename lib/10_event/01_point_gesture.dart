@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -11,17 +13,19 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
           primarySwatch: Colors.blue, splashColor: Colors.transparent),
-      home: HYHomePage(),
+      home: const HYHomePage(),
     );
   }
 }
 
 class HYHomePage extends StatelessWidget {
+  const HYHomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("列表测试"),
+        title: const Text("列表测试"),
       ),
       body: Center(
         child: Stack(

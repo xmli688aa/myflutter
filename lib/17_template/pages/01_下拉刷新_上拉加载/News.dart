@@ -2,29 +2,29 @@
 import 'package:flutter/material.dart';
 
 import 'dart:convert';
-import 'package:dio/dio.dart';
 import 'package:my_app/03_dart中的异步操作/service/http_request.dart';
 class NewsPage extends StatefulWidget {
   static const String routeName = "/NewsPage";
 
-  NewsPage();
+  const NewsPage({super.key});
 
+  @override
   _NewsPageState createState() => _NewsPageState();
 }
 
 class _NewsPageState extends State<NewsPage> {
-  List _list = [];
+  final List _list = [];
   int _page = 1;
   bool hasMore = true; //判断有没有数据
-  ScrollController _scrollController = new ScrollController();
+  final ScrollController _scrollController = ScrollController();
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     //延迟1秒加载 显示loading框
-    Future.delayed(Duration(seconds: 1)).then((value){
-      this._getData();
+    Future.delayed(const Duration(seconds: 1)).then((value){
+      _getData();
 
     });
 
@@ -35,16 +35,16 @@ class _NewsPageState extends State<NewsPage> {
       //根据滚动条下拉的距离 和整个页面的高度 来加载下页的数据
       if (_scrollController.position.pixels >
           _scrollController.position.maxScrollExtent - 40) {
-        this._getData();
+        _getData();
       }
     });
   }
 
   void _getData() async {
-    if (this.hasMore) {
+    if (hasMore) {
       var apiUrl =
-          "http://www.phonegap100.com/appapi.php?a=getPortalList&catid=20&page=${_page}";
-      var response = await HttpRequest.request(url: "http://www.phonegap100.com/appapi.php?a=getPortalList&catid=20&page=${_page}", params: {});
+          "http://www.phonegap100.com/appapi.php?a=getPortalList&catid=20&page=$_page";
+      var response = await HttpRequest.request(url: "http://www.phonegap100.com/appapi.php?a=getPortalList&catid=20&page=$_page", params: {});
       // var response = await Dio().get(apiUrl);
       var res = json.decode(response)["result"];
 
@@ -67,7 +67,7 @@ class _NewsPageState extends State<NewsPage> {
 
   //下拉刷新
   Future<void> _onRefresh() async {
-    await Future.delayed(Duration(milliseconds: 2000), () {
+    await Future.delayed(const Duration(milliseconds: 2000), () {
       _page = 1;
       _getData();
     });
@@ -77,24 +77,24 @@ class _NewsPageState extends State<NewsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("新闻列表"),
+        title: const Text("新闻列表"),
       ),
-      body: this._list.length > 0
+      body: _list.isNotEmpty
           ? RefreshIndicator(
               onRefresh: _onRefresh,
               child: ListView.builder(
                 controller: _scrollController,
-                itemCount: this._list.length, //20
+                itemCount: _list.length, //20
                 itemBuilder: (context, index) {//19                  
-                  if (index == this._list.length-1) {   //列表渲染到最后一条的时候加一个圈圈
+                  if (index == _list.length-1) {   //列表渲染到最后一条的时候加一个圈圈
                     //拉到底
                      return Column(
                       children: <Widget>[
                         ListTile(
-                          title: Text("${this._list[index]["title"]}",
+                          title: Text("${_list[index]["title"]}",
                               maxLines: 1),
                         ),
-                        Divider(),
+                        const Divider(),
                         _getMoreWidget()
                       ],
                     );
@@ -103,10 +103,10 @@ class _NewsPageState extends State<NewsPage> {
                     return Column(
                       children: <Widget>[
                         ListTile(
-                          title: Text("${this._list[index]["title"]}",
+                          title: Text("${_list[index]["title"]}",
                               maxLines: 1),
                         ),
-                        Divider()
+                        const Divider()
                       ],
                     );
                   }

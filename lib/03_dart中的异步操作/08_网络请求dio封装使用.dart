@@ -1,7 +1,6 @@
 
 import 'package:my_app/03_dart%E4%B8%AD%E7%9A%84%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C/service/http_request.dart';
 import 'package:flutter/material.dart';
-import 'package:dio/dio.dart';
 void main() {
   //1.Flutter启动需要执行runApp函数
   runApp(const MyApp());
@@ -23,7 +22,7 @@ class MYHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("网络请求")),
+      appBar: AppBar(title: const Text("网络请求")),
       body: const HomePageContent(),
     );
   }
@@ -67,6 +66,6 @@ class _HomePageContentState extends State<HomePageContent> {
   }
   @override
   Widget build(BuildContext context) {
-    return Text("hello world");
+    return const Text("hello world");
   }
 }

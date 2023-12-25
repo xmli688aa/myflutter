@@ -1,5 +1,5 @@
 main(List<String> args) {
-  final s = Shape();
+  // final s = Shape();
 
   final map = Map();
   print(map.runtimeType);
@@ -13,9 +13,9 @@ abstract class Shape {
     return "形状";
   }
 
-  factory Shape() {
-    return null;
-  }
+  // factory Shape() {
+  //   return null;
+  // }
 }
 
 

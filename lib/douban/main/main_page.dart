@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/douban/home/home.dart';
-import 'bottom_bar_item.dart';
 import 'initialize_items.dart';
 
 class ETMainPage extends StatefulWidget {

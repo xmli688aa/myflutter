@@ -5,11 +5,11 @@ class HYOperationItem extends StatelessWidget {
   final Widget _icon;
   final String _title;
   final Color textColor;
-  HYOperationItem(this._icon,this._title,{this.textColor = Colors.black});
+  const HYOperationItem(this._icon,this._title,{super.key, this.textColor = Colors.black});
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
+    return  SizedBox(
       width: 90.px,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,

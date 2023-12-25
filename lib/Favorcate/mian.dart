@@ -32,7 +32,7 @@ void main() {
       //   create: (ctx) => HYFavorViewModel(),
       // ),
     ],
-    child: MyApp(),
+    child: const MyApp(),
   ));
 }
 

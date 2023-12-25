@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:my_app/15_i18n/localizations.dart';
 
 //自定义Delegate

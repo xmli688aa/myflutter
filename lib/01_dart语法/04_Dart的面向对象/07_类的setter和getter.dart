@@ -12,7 +12,7 @@ main(List<String> args) {
 
 
 class Person {
-  String name;
+  late String name;
 
   // setter
   set setName(String name) => this.name = name;

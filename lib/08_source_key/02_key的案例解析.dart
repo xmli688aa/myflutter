@@ -2,10 +2,12 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -13,12 +15,14 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
           primarySwatch: Colors.blue, splashColor: Colors.blue),
-      home: HYHomePage(),
+      home: const HYHomePage(),
     );
   }
 }
 
 class HYHomePage extends StatefulWidget {
+  const HYHomePage({super.key});
+
   @override
   _HYHomePageState createState() => _HYHomePageState();
 }
@@ -30,7 +34,7 @@ class _HYHomePageState extends State<HYHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("列表测试"),
+        title: const Text("列表测试"),
       ),
       body: ListView(
         children: names.map((item) {
@@ -39,7 +43,7 @@ class _HYHomePageState extends State<HYHomePage> {
         }).toList(),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.delete),
+        child: const Icon(Icons.delete),
         onPressed: () {
           setState(() {
             names.removeAt(0);
@@ -59,16 +63,16 @@ class ListItemLess extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text(name),
       height: 80,
       color: randColor,
+      child: Text(name),
     );
   }
 }
 
 class ListItemFul extends StatefulWidget {
   final String name;
-  ListItemFul(this.name, {Key? key}): super(key: key);
+  const ListItemFul(this.name, {Key? key}): super(key: key);
 
   @override
   _ListItemFulState createState() => _ListItemFulState();
@@ -80,9 +84,9 @@ class _ListItemFulState extends State<ListItemFul> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text(widget.name, style: TextStyle(color: Colors.white, fontSize: 30),),
       height: 80,
       color: randColor,
+      child: Text(widget.name, style: const TextStyle(color: Colors.white, fontSize: 30),),
     );
   }
 }

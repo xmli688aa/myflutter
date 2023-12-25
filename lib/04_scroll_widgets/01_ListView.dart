@@ -32,17 +32,17 @@ class MYHomePage extends StatelessWidget {
       itemBuilder: (BuildContext context, int index) {
         return Container(
           alignment: Alignment.centerLeft,
+          height: 44,
           child: Text(
             "hello world: $index",
-            style: TextStyle(backgroundColor: Colors.blue),
-          ),
-          height: 44,//因为外层包裹的是Container 所以这里设置item的高度
+            style: const TextStyle(backgroundColor: Colors.blue),
+          ),//因为外层包裹的是Container 所以这里设置item的高度
         );
       },
       separatorBuilder: (BuildContext context, int index) {
         return Container(
           // padding: EdgeInsets.all(16),
-          margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
+          margin: const EdgeInsets.fromLTRB(20, 10, 20, 10),
           color: Colors.grey,
           height: 5,
         );
@@ -56,10 +56,10 @@ class MYHomePage extends StatelessWidget {
         itemCount: 30,
         itemBuilder: (BuildContext context, int index) {
           return ListTile(
-            leading: Icon(Icons.people),
+            leading: const Icon(Icons.people),
             title: Text("联系人 ${index + 1}"),
-            subtitle: Text("电话：18912345678"),
-            trailing: Icon(Icons.edit),
+            subtitle: const Text("电话：18912345678"),
+            trailing: const Icon(Icons.edit),
           );
         });
   }

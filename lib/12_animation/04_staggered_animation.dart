@@ -1,25 +1,28 @@
-import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
           primarySwatch: Colors.blue, splashColor: Colors.transparent),
-      home: HYHomePage(),
+      home: const HYHomePage(),
     );
   }
 }
 
 
 class HYHomePage extends StatefulWidget {
+  const HYHomePage({super.key});
+
   @override
   _HYHomePageState createState() => _HYHomePageState();
 }
@@ -42,7 +45,7 @@ class _HYHomePageState extends State<HYHomePage>
     // 1.创建AnimationController
     _controller = AnimationController(
         vsync: this,
-        duration: Duration(seconds: 2)
+        duration: const Duration(seconds: 2)
     );
 
     // 2.设置Curve的值
@@ -85,7 +88,7 @@ class _HYHomePageState extends State<HYHomePage>
      */
     return Scaffold(
       appBar: AppBar(
-        title: Text("首页"),
+        title: const Text("首页"),
       ),
       body: Center(
           child: AnimatedBuilder(
@@ -107,7 +110,7 @@ class _HYHomePageState extends State<HYHomePage>
           )
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.play_arrow),
+        child: const Icon(Icons.play_arrow),
         onPressed: () {
           if (_controller.isAnimating) {
             _controller.stop();

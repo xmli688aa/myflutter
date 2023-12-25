@@ -16,11 +16,9 @@ void main(List<String> args) {
 //   });
 // }
 
-/**
- * 解决两个问题
- * 1.await必须在async函数中才能使用
- * async函数返回的结果必须是一个future类型
- */
+/// 解决两个问题
+/// 1.await必须在async函数中才能使用
+/// async函数返回的结果必须是一个future类型
 
 Future getnatWorkData() async {
   return await sendRequest();

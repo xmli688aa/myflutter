@@ -59,7 +59,7 @@ class _HomePageContentState extends State<HomePageContent> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("proverder"),
+        title: const Text("proverder"),
       ),
       body: const Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -91,7 +91,7 @@ class _ETData1State extends State<ETData1> {
       color: Colors.cyan,
       child: Text(
         "当前计数 $counter",
-        style: TextStyle(fontSize: 20),
+        style: const TextStyle(fontSize: 20),
       ),
     );
   }
@@ -123,7 +123,7 @@ class _ETData2State extends State<ETData2> {
         builder: (context, viewmodel, child) {
           return Text(
             "当前计数 ${viewmodel.counter}",
-            style: TextStyle(fontSize: 20),
+            style: const TextStyle(fontSize: 20),
           );
         },
       ),
@@ -138,7 +138,7 @@ class ETData3 extends StatelessWidget {
     return Consumer<UserViewModel>(builder: (ctx,usrVM,child){
       return Container(
         color: Colors.yellow,
-        child: Text("姓名:${usrVM.user.nickName}",style: TextStyle(fontSize: 20),),
+        child: Text("姓名:${usrVM.user.nickName}",style: const TextStyle(fontSize: 20),),
       );
     });
   }
@@ -149,7 +149,7 @@ class ETData4 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer2<UserViewModel,ETCounterViewModel>(builder: (ctx,userVM,counterVM,child){
       return Container(
-        child: Text("当前计数：${counterVM.counter} 姓名:${userVM.user.nickName} ",style: TextStyle(fontSize: 20),),
+        child: Text("当前计数：${counterVM.counter} 姓名:${userVM.user.nickName} ",style: const TextStyle(fontSize: 20),),
       );
     });
   }

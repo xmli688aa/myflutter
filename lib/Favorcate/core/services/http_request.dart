@@ -4,7 +4,7 @@ import 'config.dart';
 class HttpRequest {
   static final BaseOptions baseOptions = BaseOptions(
       baseUrl: HttpConfig.baseURL,
-      connectTimeout: Duration(seconds: HttpConfig.timeout));
+      connectTimeout: const Duration(seconds: HttpConfig.timeout));
   static final Dio dio = Dio(baseOptions);
 
   static Future<T> request<T>(

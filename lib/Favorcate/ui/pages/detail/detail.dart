@@ -17,7 +17,7 @@ class HYDetailScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("${mealModel.title}",style: TextStyle(color: Colors.white),),
+        title: Text(mealModel.title,style: const TextStyle(color: Colors.white),),
         backgroundColor: HYAppTheme.navigationBGColor,
       ),
       body: HYDetailContent(mealModel),
@@ -25,7 +25,7 @@ class HYDetailScreen extends StatelessWidget {
         builder: (ctx,favorVM,child){
           //1.判断是否是收藏状态
           final isFavor = favorVM.isFavor(mealModel);
-          final icon = isFavor?Icon(Icons.favorite,color: Colors.red,):Icon(Icons.favorite_border,color: Colors.black);
+          final icon = isFavor?const Icon(Icons.favorite,color: Colors.red,):const Icon(Icons.favorite_border,color: Colors.black);
           return GestureDetector(
             onTap: (){
                 if(isFavor){

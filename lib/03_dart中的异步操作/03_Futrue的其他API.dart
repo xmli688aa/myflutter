@@ -11,7 +11,7 @@ void main(List<String> args) {
   Future.error("错误信息").catchError((value) {
     print(value);
   });
-  Future.delayed(Duration(seconds: 2), () {
+  Future.delayed(const Duration(seconds: 2), () {
     print("延迟2s执行了任务");
     return "hello fullter";
   }).then((value) {

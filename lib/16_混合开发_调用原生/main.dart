@@ -1,12 +1,9 @@
-import 'dart:io';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:image_picker/image_picker.dart';
 
 void main() {
-  runApp(ETMyapp());
+  runApp(const ETMyapp());
 }
 
 class ETMyapp extends StatelessWidget {
@@ -18,7 +15,7 @@ class ETMyapp extends StatelessWidget {
       title: '原生开发',
       theme: ThemeData(
           primarySwatch: Colors.blue, splashColor: Colors.transparent),
-      home: HYHomePage(),
+      home: const HYHomePage(),
     );
   }
 }
@@ -32,7 +29,7 @@ class HYHomePage extends StatefulWidget {
 
 class _HYHomePageState extends State<HYHomePage> {
   //名字需要唯一 一般是域名/功能
-  static const platform = const MethodChannel("codewhy.com/battery");
+  static const platform = MethodChannel("codewhy.com/battery");
   int _level = 0;
 
   @override
@@ -40,7 +37,7 @@ class _HYHomePageState extends State<HYHomePage> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text("获取电量信息"),
+          title: const Text("获取电量信息"),
           backgroundColor: Colors.blue,
         ),
         body: Center(
@@ -49,7 +46,7 @@ class _HYHomePageState extends State<HYHomePage> {
               ElevatedButton(onPressed: () {
                 print("获取电量信息");
                 getBatteryInfo();
-              }, child: Text("获取剩余电量")),
+              }, child: const Text("获取剩余电量")),
               Text("当前电量$_level")
             ],
           ),

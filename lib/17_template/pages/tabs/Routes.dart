@@ -8,8 +8,8 @@ import '../01_下拉刷新_上拉加载/News.dart';
 
 //配置路由
 final routes = {
-  '/': (context) => Tabs(),
-  NewsPage.routeName: (context) => NewsPage(),
+  '/': (context) => const Tabs(),
+  NewsPage.routeName: (context) => const NewsPage(),
   ETVideoPlayerView.routeName: (context)=> ETVideoPlayerView(videoUrl: "https://highlight-video.cdn.bcebos.com/video/6s/cc18b784-9e87-11ee-a6b1-b4055dd1839b.mp4"),
   ETSwiperPage.routeName: (context)=> const ETSwiperPage(),
   ETStoragePage.routeName: (context)=> const ETStoragePage(),
@@ -19,16 +19,14 @@ var onGenerateRoute = (RouteSettings settings) {
   // 统一处理
   final String? name = settings.name;
   final Function pageContentBuilder = routes[name] as Function;
-  if (pageContentBuilder != null) {
-    if (settings.arguments != null) {
-      final Route route = MaterialPageRoute(
-          builder: (context) =>
-              pageContentBuilder(context, arguments: settings.arguments));
-      return route;
-    } else {
-      final Route route =
-          MaterialPageRoute(builder: (context) => pageContentBuilder(context));
-      return route;
-    }
+  if (settings.arguments != null) {
+    final Route route = MaterialPageRoute(
+        builder: (context) =>
+            pageContentBuilder(context, arguments: settings.arguments));
+    return route;
+  } else {
+    final Route route =
+        MaterialPageRoute(builder: (context) => pageContentBuilder(context));
+    return route;
   }
 };

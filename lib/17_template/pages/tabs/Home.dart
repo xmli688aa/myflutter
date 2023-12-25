@@ -6,7 +6,8 @@ import 'package:my_app/17_template/pages/03_%E5%9B%BE%E7%89%87%E8%BD%AE%E6%92%AD
 import 'package:my_app/17_template/pages/04_%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8/storage_page.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage();
+  const HomePage({super.key});
+  @override
   _HomePageState createState() => _HomePageState();
 }
 
@@ -18,25 +19,25 @@ class _HomePageState extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [                   
                       ElevatedButton(
-              child: Text('跳转到下拉刷新，上拉分页加载更多页面'),
+              child: const Text('跳转到下拉刷新，上拉分页加载更多页面'),
               onPressed: (){
                   Navigator.pushNamed(context, NewsPage.routeName);
               },
             ),
           ElevatedButton(
-            child: Text('跳转视频播放页面'),
+            child: const Text('跳转视频播放页面'),
             onPressed: (){
               Navigator.pushNamed(context, ETVideoPlayerView.routeName);
             },
           ),
           ElevatedButton(
-            child: Text('轮播图card_swiper的使用'),
+            child: const Text('轮播图card_swiper的使用'),
             onPressed: (){
               Navigator.pushNamed(context, ETSwiperPage.routeName);
             },
           ),
           ElevatedButton(
-            child: Text('数据本地存储'),
+            child: const Text('数据本地存储'),
             onPressed: (){
               Navigator.pushNamed(context, ETStoragePage.routeName);
             },

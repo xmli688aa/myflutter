@@ -1,24 +1,27 @@
-import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
           primarySwatch: Colors.blue, splashColor: Colors.transparent),
-      home: HYHomePage(),
+      home: const HYHomePage(),
     );
   }
 }
 
 
 class HYHomePage extends StatefulWidget {
+  const HYHomePage({super.key});
+
   @override
   _HYHomePageState createState() => _HYHomePageState();
 }
@@ -69,13 +72,13 @@ class _HYHomePageState extends State<HYHomePage>
     print("执行了_HYHomePageState的build方法");
     return Scaffold(
       appBar: AppBar(
-        title: Text("首页"),
+        title: const Text("首页"),
       ),
       body: Center(
         child: Icon(Icons.favorite, color: Colors.red, size: _sizeAnim.value,),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.play_arrow),
+        child: const Icon(Icons.play_arrow),
         onPressed: () {
           if (_controller.isAnimating) {
             _controller.stop();

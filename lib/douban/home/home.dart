@@ -14,10 +14,10 @@ class _ETHomePageState extends State<ETHomePage> {
   Widget build(BuildContext context) {
     return  Scaffold(
         appBar: AppBar(
-          title: Text("首页"),
+          title: const Text("首页"),
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         ),
-        body: ETHomePageContent(),
+        body: const ETHomePageContent(),
     );
   }
 }

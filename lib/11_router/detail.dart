@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ETDetailPage extends StatelessWidget {
   static const String routeName = "/ETDetailPage";
   String message;
-  ETDetailPage( this.message) ;
+  ETDetailPage( this.message, {super.key}) ;
   @override
   Widget build(BuildContext context) {
     // String message2 = ModalRoute.of(context)?.settings.arguments as String;
@@ -25,16 +25,16 @@ class ETDetailPage extends StatelessWidget {
           //
           //   },
           // ),
-          title: Text("详情页"),
+          title: const Text("详情页"),
         ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("${message}"),
+              Text(message),
               ElevatedButton(onPressed: () {
                 backLastPage(context);
-              }, child: Text("返回上个页面")),
+              }, child: const Text("返回上个页面")),
 
             ],
           ),

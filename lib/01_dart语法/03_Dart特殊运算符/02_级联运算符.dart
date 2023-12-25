@@ -12,7 +12,7 @@ main(List<String> args) {
 }
 
 class Person {
-  String name;
+  late String name;
 
   void run() {
     print("running");

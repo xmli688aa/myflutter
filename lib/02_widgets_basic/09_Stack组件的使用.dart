@@ -1,4 +1,3 @@
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 
@@ -23,10 +22,10 @@ class MYHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Hello World")),
+      appBar: AppBar(title: const Text("Hello World")),
       body: const HomePageContent(),
       floatingActionButton:
-          FloatingActionButton(onPressed: () {}, child: Icon(Icons.add)),
+          FloatingActionButton(onPressed: () {}, child: const Icon(Icons.add)),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
@@ -59,14 +58,14 @@ class _HomePageContentState extends State<HomePageContent> {
           left: 0,
           right: 0,
           child: Container(
-            padding: EdgeInsets.only(left: 20, right: 20),
-            color: Color.fromARGB(212, 19, 19, 19),
+            padding: const EdgeInsets.only(left: 20, right: 20),
+            color: const Color.fromARGB(212, 19, 19, 19),
             width: double.infinity,
             height: 44,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   "这个人头像挺不错的",
                   style: TextStyle(fontSize: 24, color: Colors.white),
                 ),

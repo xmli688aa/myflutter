@@ -30,7 +30,7 @@ class _ETSwiperPageState extends State<ETSwiperPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("轮播图card_swiper库的使用"),
+        title: const Text("轮播图card_swiper库的使用"),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -104,7 +104,7 @@ class _CustomSwiperState extends State<CustomSwiper> {
       pagination: const SwiperPagination(
           builder: DotSwiperPaginationBuilder(
               color: Color(0xFFFFFFFF), activeColor: Color(0xFFFF4646))),
-      control: SwiperControl(),
+      control: const SwiperControl(),
     );
   }
 }
@@ -249,7 +249,7 @@ class _CustomLayoutSwiperState extends State<CustomLayoutSwiper> {
       customLayoutOption: CustomLayoutOption(startIndex: -1, stateCount: 3)
         ..addRotate([-45.0 / 180, 0.0, 45.0 / 180])
         ..addTranslate(
-            [Offset(-370.0, -40.0), Offset(0.0, 0.0), Offset(370.0, -40.0)]),
+            [const Offset(-370.0, -40.0), const Offset(0.0, 0.0), const Offset(370.0, -40.0)]),
     );
   }
 }

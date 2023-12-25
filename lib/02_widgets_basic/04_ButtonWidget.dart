@@ -21,11 +21,11 @@ class MYHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Hello World")),
-      body: ButtonDemo(),
+      appBar: AppBar(title: const Text("Hello World")),
+      body: const ButtonDemo(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
@@ -50,7 +50,7 @@ class ButtonDemo extends StatelessWidget {
                 //去掉外边距
                 tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                 // elevation: MaterialStateProperty.all(0),
-                shadowColor: MaterialStatePropertyAll(Colors.blue),
+                shadowColor: const MaterialStatePropertyAll(Colors.blue),
                 backgroundColor: MaterialStateProperty.all(Colors.yellow)),
             onPressed: () {},
             child: const Text(
@@ -61,7 +61,7 @@ class ButtonDemo extends StatelessWidget {
         ElevatedButton(
             style: ButtonStyle(
                 // elevation: MaterialStateProperty.all(0),
-                shadowColor: MaterialStatePropertyAll(Colors.blue),
+                shadowColor: const MaterialStatePropertyAll(Colors.blue),
                 backgroundColor: MaterialStateProperty.all(Colors.yellow)),
             onPressed: () {},
             child: const Text(
@@ -71,7 +71,7 @@ class ButtonDemo extends StatelessWidget {
             )),
         FloatingActionButton(
           onPressed: () {},
-          child: Icon(Icons.phone),
+          child: const Icon(Icons.phone),
         ),
         OutlinedButton(
           onPressed: () {},
@@ -79,17 +79,17 @@ class ButtonDemo extends StatelessWidget {
         ),
         OutlinedButton(
           style: ButtonStyle(
-            backgroundColor: MaterialStatePropertyAll(Colors.lightGreen),
+            backgroundColor: const MaterialStatePropertyAll(Colors.lightGreen),
             //设置圆角最大为高度的一半
             shape: MaterialStatePropertyAll(RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(42))),
-            shadowColor: MaterialStatePropertyAll(Colors.yellow),
-            iconSize: MaterialStatePropertyAll(84),
+            shadowColor: const MaterialStatePropertyAll(Colors.yellow),
+            iconSize: const MaterialStatePropertyAll(84),
           ),
           onPressed: () {},
-          child: Row(
+          child: const Row(
             mainAxisSize: MainAxisSize.min,
-            children: const [
+            children: [
               Icon(
                 Icons.favorite,
                 color: Colors.red,

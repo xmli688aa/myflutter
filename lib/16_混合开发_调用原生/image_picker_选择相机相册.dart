@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 void main() {
-  runApp(ETMyapp());
+  runApp(const ETMyapp());
 }
 
 class ETMyapp extends StatelessWidget {
@@ -16,7 +16,7 @@ class ETMyapp extends StatelessWidget {
       title: '原生开发',
       theme: ThemeData(
           primarySwatch: Colors.blue, splashColor: Colors.transparent),
-      home: HYHomePage(),
+      home: const HYHomePage(),
     );
   }
 }
@@ -31,13 +31,13 @@ class HYHomePage extends StatefulWidget {
 class _HYHomePageState extends State<HYHomePage> {
   File? _imageFile;
   XFile? _photo;
-  List<XFile> _images = [];
+  final List<XFile> _images = [];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("调用原生相机"),
+        title: const Text("调用原生相机"),
         backgroundColor: Colors.blue,
       ),
       body: ListView(
@@ -48,9 +48,9 @@ class _HYHomePageState extends State<HYHomePage> {
                   onPressed: () {
                     _pickImage();
                   },
-                  child: Text("选择一张照片")),
+                  child: const Text("选择一张照片")),
               _imageFile == null
-                  ? Text("请选择一张照片")
+                  ? const Text("请选择一张照片")
                   : Image.file(
                 _imageFile!,
                 width: 300,
@@ -61,12 +61,12 @@ class _HYHomePageState extends State<HYHomePage> {
                   onPressed: () {
                     _pickMultiImage();
                   },
-                  child: Text("选择多张照片")),
+                  child: const Text("选择多张照片")),
               GridView.builder(
                 itemCount: _images.length<9?_images.length + 1:9,
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                physics: const NeverScrollableScrollPhysics(),
+                gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                     maxCrossAxisExtent: 150, //item的宽度
                     mainAxisExtent: 200 //itme的高度
                 ),
@@ -76,7 +76,7 @@ class _HYHomePageState extends State<HYHomePage> {
                         onTap: () {
                           _pickMultiImage();
                         },
-                        child: Icon(Icons.add));
+                        child: const Icon(Icons.add));
                   }
                   XFile xfile = _images[index];
 
@@ -91,7 +91,7 @@ class _HYHomePageState extends State<HYHomePage> {
                     print("点击了拍照");
                     _takePhoto();
                   },
-                  child: Text("拍照")),
+                  child: const Text("拍照")),
               _photo == null
                   ? Container()
                   : Image.file(
@@ -114,7 +114,7 @@ class _HYHomePageState extends State<HYHomePage> {
     );
     setState(() {
       if (file != null) {
-        _imageFile = File(file!.path);
+        _imageFile = File(file.path);
       }
     });
   }
@@ -135,10 +135,8 @@ class _HYHomePageState extends State<HYHomePage> {
   void _takePhoto() async {
     XFile photoFile =
     await ImagePicker().pickImage(source: ImageSource.camera) as XFile;
-    if (photoFile != null) {
-      setState(() {
-        _photo = photoFile;
-      });
+    setState(() {
+      _photo = photoFile;
+    });
     }
-  }
 }

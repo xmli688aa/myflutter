@@ -1,7 +1,5 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:my_app/douban/main/navigation_bar.dart';
 
 class ETSubjectPage extends StatelessWidget {
   const ETSubjectPage({Key? key}) : super(key: key);
@@ -10,7 +8,7 @@ class ETSubjectPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("书影音"),
+        title: const Text("书影音"),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: Center(

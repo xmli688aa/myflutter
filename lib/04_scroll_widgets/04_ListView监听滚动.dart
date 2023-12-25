@@ -1,4 +1,3 @@
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 
@@ -23,7 +22,7 @@ class MYHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return HomePageContent();
+    return const HomePageContent();
   }
 }
 
@@ -35,7 +34,7 @@ class HomePageContent extends StatefulWidget {
 }
 
 class _HomePageContentState extends State<HomePageContent> {
-  ScrollController _controller = ScrollController(initialScrollOffset: 300);
+  final ScrollController _controller = ScrollController(initialScrollOffset: 300);
   bool _showFloatingButton = false;
   @override
   void initState() {
@@ -64,7 +63,7 @@ class _HomePageContentState extends State<HomePageContent> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("列表测试"),
+        title: const Text("列表测试"),
       ),
       body: NotificationListener(
         onNotification: (ScrollNotification notification){
@@ -85,16 +84,16 @@ class _HomePageContentState extends State<HomePageContent> {
               //   return Icon(Icons.factory);
               // }
               return ListTile(
-                leading: Icon(Icons.people),
+                leading: const Icon(Icons.people),
                 title: Text("联系人:$index"),
               );
             }),
       ),
       floatingActionButton:_showFloatingButton? FloatingActionButton(
-        child: Icon(Icons.arrow_upward),
+        child: const Icon(Icons.arrow_upward),
         onPressed: (){
           // controller.jumpTo(0);
-          _controller.animateTo(0, duration: Duration(seconds: 1), curve: Curves.easeIn);
+          _controller.animateTo(0, duration: const Duration(seconds: 1), curve: Curves.easeIn);
         },
 
       ):null,

@@ -4,10 +4,12 @@ import 'about.dart';
 import 'detail.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -39,36 +41,36 @@ class _HYHomePageState extends State<HYHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("首页"),
+        title: const Text("首页"),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("${_message}"),
+            Text(_message),
             ElevatedButton(
               onPressed: () {
                 //1 普通的跳转方式
                 _jumpToDetailPage(context);
               },
-              child: Text("进入详情页 普通跳转方式"),
+              child: const Text("进入详情页 普通跳转方式"),
             ),
             ElevatedButton(
                 onPressed: () {
                   _jumpToAboutPage(context);
                 },
-                child: Text("跳转到关于页面")),
+                child: const Text("跳转到关于页面")),
             ElevatedButton(
               onPressed: () {
              _jumpToDetailPage2(context);
               },
-              child: Text("进入详情页 第2种方式"),
+              child: const Text("进入详情页 第2种方式"),
             ),
             ElevatedButton(
               onPressed: () {
                 _jumpToSettingsPage(context);
               },
-              child: Text("进入设置页面"),
+              child: const Text("进入设置页面"),
             ),
           ],
         ),
@@ -83,7 +85,7 @@ class _HYHomePageState extends State<HYHomePage> {
       return ETDetailPage("这是首页传递过来的数据");
     }));
     result.then((value) {
-      print("详情页传递过来的数据：${value}");
+      print("详情页传递过来的数据：$value");
       //这里要做一个判断 判断value是否是字符串 防止详情页没有传递数据 直接赋值会导致报错
       if (value is String) {
         _message = value;

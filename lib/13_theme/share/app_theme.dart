@@ -11,15 +11,15 @@ class CustomAppTheme {
 
   static final ThemeData norTheme = ThemeData(
       primarySwatch: Colors.yellow,
-      textTheme: TextTheme(
-          bodyText1: TextStyle(fontSize: normalFontSize, color: norTextColors)
+      textTheme: const TextTheme(
+          bodyLarge: TextStyle(fontSize: normalFontSize, color: norTextColors)
       )
   );
 
   static final ThemeData darkTheme = ThemeData(
       primarySwatch: Colors.grey,
-      textTheme: TextTheme(
-          bodyText1: TextStyle(fontSize: normalFontSize, color: darkTextColors)
+      textTheme: const TextTheme(
+          bodyLarge: TextStyle(fontSize: normalFontSize, color: darkTextColors)
       )
   );
 }

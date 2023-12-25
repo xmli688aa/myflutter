@@ -21,10 +21,10 @@ class MYHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Hello World")),
+      appBar: AppBar(title: const Text("Hello World")),
       body: const HomePageContent(),
       floatingActionButton:
-          FloatingActionButton(onPressed: () {}, child: Icon(Icons.add)),
+          FloatingActionButton(onPressed: () {}, child: const Icon(Icons.add)),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
@@ -41,15 +41,15 @@ class _HomePageContentState extends State<HomePageContent> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(8),
-      margin: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(8),
+      margin: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.green,
         border: Border.all(
           width: 5,
           color: Colors.blue,
         ),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
               color: Colors.black, offset: Offset(10, 10), blurRadius: 10),
           BoxShadow(
@@ -59,7 +59,7 @@ class _HomePageContentState extends State<HomePageContent> {
       width: 200,
       height: 200,
       // color: Colors.amber,
-      child: Align(
+      child: const Align(
           alignment: Alignment(-1, -1),
           child: Icon(
             Icons.pets,

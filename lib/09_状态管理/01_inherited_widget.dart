@@ -35,20 +35,20 @@ class HomePageContent extends StatefulWidget {
 }
 
 class _HomePageContentState extends State<HomePageContent> {
-  ETPerson _person = ETPerson(age: 130,name: "Ethon");
+  final ETPerson _person = ETPerson(age: 130,name: "Ethon");
   int _counter = 130;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("InheritedWidget"),
+        title: const Text("InheritedWidget"),
       ),
       body: Center(
 
         child: ETCounterWidget(
           person: _person,
           counter: _counter,
-          child: Column(
+          child: const Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
 
@@ -59,7 +59,7 @@ class _HomePageContentState extends State<HomePageContent> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
         onPressed: (){
           _counter++;
           _person.name = "Lindada";
@@ -90,11 +90,11 @@ class _ETData1State extends State<ETData1> {
       children: [
         Container(
           color: Colors.cyan,
-          child: Text("当前计数$count",style: TextStyle(fontSize: 20),),
+          child: Text("当前计数$count",style: const TextStyle(fontSize: 20),),
         ),
         Container(
           color: Colors.cyan,
-          child: Text("姓名${person?.name} 年龄${person?.age}",style: TextStyle(fontSize: 20),),
+          child: Text("姓名${person?.name} 年龄${person?.age}",style: const TextStyle(fontSize: 20),),
         ),
       ],
     );
@@ -120,7 +120,7 @@ class _ETData2State extends State<ETData2> {
     int? counter = ETCounterWidget.of(context)?.counter;
     return Container(
       color: Colors.redAccent,
-      child: Text("当前计数${counter}", style: TextStyle(fontSize: 30),),
+      child: Text("当前计数$counter", style: const TextStyle(fontSize: 30),),
     );
   }
 }

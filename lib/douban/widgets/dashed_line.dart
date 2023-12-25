@@ -7,7 +7,7 @@ class ETDashedLine extends StatelessWidget {
   final double dashedHeight;
   final int count;
   final Color color;
-  ETDashedLine({
+  const ETDashedLine({super.key, 
     this.containerSize = 200,
     this.axis = Axis.horizontal,
     this.dashedWidth = 2,
@@ -18,7 +18,7 @@ class ETDashedLine extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: axis==Axis.horizontal? containerSize:dashedHeight,
       height:axis==Axis.vertical? containerSize:dashedWidth,
       child: ETDashedLineContent(axis: axis, dashedWidth: dashedWidth, dashedHeight: dashedHeight, count: count, color: color),
@@ -34,7 +34,7 @@ class ETDashedLineContent extends StatelessWidget {
   final int count;
   final Color color;
 
-  ETDashedLineContent({
+  const ETDashedLineContent({super.key, 
     required this.axis ,
     required this.dashedWidth ,
     required this.dashedHeight ,
@@ -47,7 +47,7 @@ class ETDashedLineContent extends StatelessWidget {
     return Flex(
       direction: axis,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: List.generate(this.count, (_) {
+      children: List.generate(count, (_) {
         return SizedBox(
           width: dashedWidth,
           height: dashedHeight,

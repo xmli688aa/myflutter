@@ -23,7 +23,7 @@ class MYHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("获取本地json文件数据")),
+      appBar: AppBar(title: const Text("获取本地json文件数据")),
       body: const HomePageContent(),
     );
   }
@@ -52,7 +52,7 @@ class _HomePageContentState extends State<HomePageContent> {
 
   @override
   Widget build(BuildContext context) {
-    return Text("hello world");
+    return const Text("hello world");
   }
 }
 
@@ -77,8 +77,8 @@ class Anchor {
   Anchor(
       {required this.nickname, required this.roomName, required this.imageUrl});
   Anchor.withMap(Map<String, dynamic> parsedMap) {
-    this.nickname = parsedMap["nickname"];
-    this.roomName = parsedMap["roomName"];
-    this.imageUrl = parsedMap["imageUrl"];
+    nickname = parsedMap["nickname"];
+    roomName = parsedMap["roomName"];
+    imageUrl = parsedMap["imageUrl"];
   }
 }

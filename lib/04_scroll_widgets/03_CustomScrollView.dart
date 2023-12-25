@@ -1,14 +1,15 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:dio/dio.dart';
 
 void main() {
   //1.Flutter启动需要执行runApp函数
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
@@ -40,14 +41,14 @@ class MYHomePage extends StatelessWidget {
         pinned: true, //滚动是否可以超过AppBar
         toolbarHeight: 88, //这个是滚动到最上面的时候 占据导航栏的高度
         flexibleSpace: FlexibleSpaceBar(
-          titlePadding: EdgeInsets.all(0), //这个值不设置会导致下面的text文本不居中 奇怪
+          titlePadding: const EdgeInsets.all(0), //这个值不设置会导致下面的text文本不居中 奇怪
           // centerTitle:true ,
           title: Container(
             alignment: Alignment.center,
             color: Colors.orangeAccent,
             width: double.infinity,
             height: 88,
-            child: Text(
+            child: const Text(
               "hello flutter",
               style: TextStyle(color: Colors.green),
             ),
@@ -68,14 +69,14 @@ class MYHomePage extends StatelessWidget {
               child: const Text("hello world"),
             );
           }),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               crossAxisSpacing: 8,
               mainAxisSpacing: 8,
               childAspectRatio: 2)),
       SliverList(
         delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
-          return ListTile(
+          return const ListTile(
             leading: Icon(Icons.people),
             title: Text("联系人"),
           );
@@ -91,7 +92,7 @@ class MYHomePage extends StatelessWidget {
           //滚动的安全区域
           sliver: SliverPadding(
             //设置与顶部的间距 并且可以滚动
-            padding: EdgeInsets.symmetric(vertical: 10),
+            padding: const EdgeInsets.symmetric(vertical: 10),
             sliver: SliverGrid(
                 delegate: SliverChildBuilderDelegate(childCount: 47,
                     (BuildContext context, int index) {
@@ -102,7 +103,7 @@ class MYHomePage extends StatelessWidget {
                     child: const Text("hello world"),
                   );
                 }),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     crossAxisSpacing: 8,
                     mainAxisSpacing: 8,

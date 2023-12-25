@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CategoryPage extends StatefulWidget {
-  CategoryPage();
+  const CategoryPage({super.key});
 
+  @override
   _CategoryPageState createState() => _CategoryPageState();
 }
 
@@ -14,7 +15,7 @@ class _CategoryPageState extends State<CategoryPage> {
       child: Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.black26,
-            title: Row(
+            title: const Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Expanded(
@@ -44,51 +45,51 @@ class _CategoryPageState extends State<CategoryPage> {
           body: TabBarView(
             children: <Widget>[
               ListView(
-                children: <Widget>[
+                children: const <Widget>[
                   ListTile(title: Text("第一个tab")),
                   ListTile(title: Text("第一个tab")),
                   ListTile(title: Text("第一个tab"))
                 ],
               ),
               ListView(
-                children: <Widget>[
+                children: const <Widget>[
                   ListTile(title: Text("第二个tab")),
                   ListTile(title: Text("第二个tab")),
                   ListTile(title: Text("第二个tab"))
                 ],
               ),
               ListView(
-                children: <Widget>[
+                children: const <Widget>[
                   ListTile(title: Text("第三个tab")),
                   ListTile(title: Text("第三个tab")),
                 ],
               ),
               ListView(
-                children: <Widget>[
+                children: const <Widget>[
                   ListTile(title: Text("第四个tab")),
                   ListTile(title: Text("第四个tab"))
                 ],
               ),
               ListView(
-                children: <Widget>[
+                children: const <Widget>[
                   ListTile(title: Text("第五个tab")),
                   ListTile(title: Text("第五个tab")),
                 ],
               ),
               ListView(
-                children: <Widget>[
+                children: const <Widget>[
                   ListTile(title: Text("第六个tab")),
                   ListTile(title: Text("第六个tab")),
                 ],
               ),
               ListView(
-                children: <Widget>[
+                children: const <Widget>[
                   ListTile(title: Text("第七个tab")),
                   ListTile(title: Text("第七个tab"))
                 ],
               ),
               ListView(
-                children: <Widget>[
+                children: const <Widget>[
                   ListTile(title: Text("第八个tab")),
                   ListTile(title: Text("第八个tab"))
                 ],

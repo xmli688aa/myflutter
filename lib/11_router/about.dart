@@ -1,10 +1,9 @@
-import 'dart:async';
 
 import 'package:flutter/material.dart';
 
 class ETAboutPage extends StatefulWidget {
   static const String routeName = "/about";
-  ETAboutPage();
+  const ETAboutPage({super.key});
   @override
   _ETAboutPageState createState() => _ETAboutPageState();
 }
@@ -23,7 +22,7 @@ class _ETAboutPageState extends State<ETAboutPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("关于页"),
+        title: const Text("关于页"),
       ),
       body: Center(
         child: Column(
@@ -31,7 +30,7 @@ class _ETAboutPageState extends State<ETAboutPage> {
           children: <Widget>[
             Text(message),
             ElevatedButton(
-              child: Text("返回首页"),
+              child: const Text("返回首页"),
               onPressed: () {
                 Navigator.of(context).pop();
               },

@@ -8,7 +8,7 @@ import '../main.dart';
 class ETRouter {
   static final Map<String, WidgetBuilder> routes = {
     HYHomePage.routerName:(ctx) => const HYHomePage() ,
-    ETAboutPage.routeName: (ctx) => ETAboutPage()
+    ETAboutPage.routeName: (ctx) => const ETAboutPage()
   };
   static const String initialRoute = HYHomePage.routerName;
 
@@ -23,7 +23,7 @@ class ETRouter {
 
   static final RouteFactory unknownRoute = (settings) {
     return MaterialPageRoute(builder: (ctx) {
-      return HYUnknownPage();
+      return const HYUnknownPage();
     });
   };
 }

@@ -23,7 +23,7 @@ class MYHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("商品列表")),
+      appBar: AppBar(title: const Text("商品列表")),
       body: const MYHomeContent(),
     );
   }

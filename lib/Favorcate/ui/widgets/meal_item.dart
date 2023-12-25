@@ -10,9 +10,9 @@ import '../../core/viewmodel/favor_view_model.dart';
 final _cardRadius = 12.px;
 
 class HYMealItem extends StatelessWidget {
-  HYMealModel _mealModel;
+  final HYMealModel _mealModel;
 
-  HYMealItem(this._mealModel);
+  const HYMealItem(this._mealModel, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +68,7 @@ class HYMealItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(5.px),
                 color: Colors.black54,
               ),
-              child: Text(this._mealModel.title,
+              child: Text(_mealModel.title,
                   style: Theme.of(context)
                       .textTheme
                       .bodyLarge
@@ -85,8 +85,8 @@ class HYMealItem extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          HYOperationItem(Icon(Icons.schedule), "${_mealModel.duration}分钟"),
-          HYOperationItem(Icon(Icons.restaurant), "${_mealModel.complexStr}"),
+          HYOperationItem(const Icon(Icons.schedule), "${_mealModel.duration}分钟"),
+          HYOperationItem(const Icon(Icons.restaurant), _mealModel.complexStr),
           buildFavorItem(),
         ],
       ),

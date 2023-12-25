@@ -1,5 +1,4 @@
 
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
@@ -24,10 +23,10 @@ class HYCategoryModel {
 	}
 
 	Map<String, dynamic> toJson() {
-		final Map<String, dynamic> data = new Map<String, dynamic>();
-		data['id'] = this.id;
-		data['title'] = this.title;
-		data['color'] = this.color;
+		final Map<String, dynamic> data = <String, dynamic>{};
+		data['id'] = id;
+		data['title'] = title;
+		data['color'] = color;
 		return data;
 	}
 }

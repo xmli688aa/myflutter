@@ -1,11 +1,11 @@
-import 'dart:io';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/03_dart%E4%B8%AD%E7%9A%84%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C/service/http_request.dart';
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   // This widget is the root of your application.
   // BuildContext context -> Element
   @override
@@ -14,12 +14,14 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
           primarySwatch: Colors.blue, splashColor: Colors.transparent),
-      home: HYHomePage(),
+      home: const HYHomePage(),
     );
   }
 }
 
 class HYHomePage extends StatelessWidget {
+  const HYHomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     // 1.自己写Widget
@@ -50,14 +52,16 @@ class HYHomePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("列表测试"),
+        title: const Text("列表测试"),
       ),
-      body: HYHomeContent(),
+      body: const HYHomeContent(),
     );
   }
 }
 
 class HYHomeContent extends StatefulWidget {
+  const HYHomeContent({super.key});
+
   @override
   _HYHomeContentState createState() => _HYHomeContentState();
 }

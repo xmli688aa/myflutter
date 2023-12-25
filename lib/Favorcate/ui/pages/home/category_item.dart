@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/Favorcate/ui/pages/detail/detail.dart';
 import 'package:my_app/14_screenfit/extension/int_extension.dart';
 
 import '../../../core/model/category_model.dart';
@@ -7,8 +6,8 @@ import '../meal/meal.dart';
 
 
 class HYHomeCategoryItem extends StatelessWidget {
-  HYCategoryModel _categoryModel;
-  HYHomeCategoryItem(this._categoryModel);
+  final HYCategoryModel _categoryModel;
+  const HYHomeCategoryItem(this._categoryModel, {super.key});
 
   @override
   Widget build(BuildContext context) {

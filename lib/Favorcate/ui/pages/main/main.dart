@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/Favorcate/ui/pages/home/home_app_bar.dart';
 
 import '../home/home_drawer.dart';
 import 'initialize_items.dart';
@@ -33,7 +32,7 @@ class _HYMainScreenState extends State<HYMainScreen> {
           });
         },
       ),
-      drawer:HYHomeDrawer(),
+      drawer:const HYHomeDrawer(),
 
     );
   }

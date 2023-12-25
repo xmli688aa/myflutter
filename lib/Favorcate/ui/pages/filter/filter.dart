@@ -11,9 +11,9 @@ class HYFilterScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: HYAppTheme.navigationBGColor,
-        title: Text("美食过滤",style: TextStyle(color: Colors.white),),
+        title: const Text("美食过滤",style: TextStyle(color: Colors.white),),
       ),
-      body: HYFilterContent(),
+      body: const HYFilterContent(),
     );
   }
 }

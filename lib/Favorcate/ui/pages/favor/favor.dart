@@ -8,9 +8,9 @@ class HYFavorScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("我的收藏"),
+        title: const Text("我的收藏"),
       ),
-      body:HYFavorContent(),
+      body:const HYFavorContent(),
     );
   }
 }

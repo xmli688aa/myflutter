@@ -1,20 +1,21 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:my_app/15_i18n/localizations.dart';
 import 'package:my_app/15_i18n/localizations_delegate.dart';
 
 import '../generated/l10n.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      home: HYHomePage(),
+      home: const HYHomePage(),
       //国际化配置语言
       supportedLocales:  S.delegate.supportedLocales,
       //设置组件也跟着手机语言保持一致
@@ -30,6 +31,8 @@ class MyApp extends StatelessWidget {
 }
 
 class HYHomePage extends StatelessWidget {
+  const HYHomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,12 +45,12 @@ class HYHomePage extends StatelessWidget {
           children: <Widget>[
              Text(
                S.of(context).hello,
-              style: TextStyle(fontSize: 20),
+              style: const TextStyle(fontSize: 20),
             ),
             ElevatedButton(
               child:  Text(
                 S.of(context).pickTime,
-                style: TextStyle(fontSize: 20, color: Colors.black),
+                style: const TextStyle(fontSize: 20, color: Colors.black),
               ),
               onPressed: () {
                 showDatePicker(

@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:my_app/09_%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/viewmodel/counter_view_model.dart';
 import 'package:provider/provider.dart';
 
-/**
- * 1.创建自己需要共享的数据
- * 2.在应用程序的顶层ChangeNotifierProvider
- * 3.在其它位置使用共享的数据
- *  > Provider.of: 当Provider中的数据发生改变时, Provider.of所在的Widget整个build方法都会重新构建
- *  > Consumer(相对推荐): 当Provider中的数据发生改变时, 执行重新执行Consumer的builder
- *  > Selector: 1.selector方法(作用,对原有的数据进行转换) 2.shouldRebuild(作用,要不要重新构建)
- */
+/// 1.创建自己需要共享的数据
+/// 2.在应用程序的顶层ChangeNotifierProvider
+/// 3.在其它位置使用共享的数据
+///  > Provider.of: 当Provider中的数据发生改变时, Provider.of所在的Widget整个build方法都会重新构建
+///  > Consumer(相对推荐): 当Provider中的数据发生改变时, 执行重新执行Consumer的builder
+///  > Selector: 1.selector方法(作用,对原有的数据进行转换) 2.shouldRebuild(作用,要不要重新构建)
 
 void main() {
 
@@ -52,16 +50,16 @@ class _HomePageContentState extends State<HomePageContent> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("InheritedWidget"),
+        title: const Text("InheritedWidget"),
       ),
-      body: Center(
+      body: const Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           ETData1(),
           ETData2(),
         ]),
       ),
       floatingActionButton: Selector<ETCounterViewModel,ETCounterViewModel>(
-        child: Icon(Icons.add),//优化 数据改变的时候 这个地方的child不会重新build
+        child: const Icon(Icons.add),//优化 数据改变的时候 这个地方的child不会重新build
         builder:
             (BuildContext context,  model, Widget? child) {
           return FloatingActionButton(
@@ -108,7 +106,7 @@ class _ETData1State extends State<ETData1> {
       color: Colors.cyan,
       child: Text(
         "当前计数 $counter",
-        style: TextStyle(fontSize: 20),
+        style: const TextStyle(fontSize: 20),
       ),
     );
   }
@@ -140,7 +138,7 @@ class _ETData2State extends State<ETData2> {
         builder: (context,viewmodel,child){
           return  Text(
             "当前计数 ${viewmodel.counter}",
-            style: TextStyle(fontSize: 20),
+            style: const TextStyle(fontSize: 20),
           );
         },
       ),

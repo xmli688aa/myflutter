@@ -87,6 +87,6 @@ class HYStarClipper extends CustomClipper<Rect> {
 
   @override
   bool shouldReclip(HYStarClipper oldClipper) {
-    return oldClipper.width != this.width;
+    return oldClipper.width != width;
   }
 }

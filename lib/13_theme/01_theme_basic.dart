@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     /**
@@ -37,9 +39,9 @@ class MyApp extends StatelessWidget {
           // buttonTheme: ButtonThemeData(
           //     height: 25, minWidth: 10, buttonColor: Colors.pinkAccent),
           // 6.Card的主题
-          cardTheme: CardTheme(color: Colors.greenAccent, elevation: 10),
+          cardTheme: const CardTheme(color: Colors.greenAccent, elevation: 10),
           // 7.Text的主题
-          textTheme: TextTheme(
+          textTheme: const TextTheme(
             // bodyText1: TextStyle(fontSize: 16, color: Colors.red),
             // bodyText2: TextStyle(fontSize: 20),
             // headline4: TextStyle(fontSize: 14),
@@ -47,39 +49,41 @@ class MyApp extends StatelessWidget {
             // headline2: TextStyle(fontSize: 18),
             // headline1: TextStyle(fontSize: 20),
           )),
-      home: HYHomePage(),
+      home: const HYHomePage(),
     );
   }
 }
 
 class HYHomePage extends StatelessWidget {
+  const HYHomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("首页"),
+        title: const Text("首页"),
         //设置了背景色 才会跟主题的颜色保持一致
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: Center(
         child: Column(
           children: <Widget>[
-            Text("Hello World"),
-            Text(
+            const Text("Hello World"),
+            const Text(
               "Hello World",
               style: TextStyle(fontSize: 14),
             ),
-            Text(
+            const Text(
               "Hello World",
               style: TextStyle(fontSize: 20),
             ),
             Text(
               "Hello World",
-              style: Theme.of(context).textTheme.bodyText2,
+              style: Theme.of(context).textTheme.bodyMedium,
             ),
             Text(
               "Hello World",
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
             Switch(
               value: true,
@@ -100,10 +104,10 @@ class HYHomePage extends StatelessWidget {
               // activeColor: Colors.red,
             ),
             ElevatedButton(
-              child: Text("Button"),
+              child: const Text("Button"),
               onPressed: () {},
             ),
-            Card(
+            const Card(
               child: Text(
                 "你好啊,Flutter",
                 style: TextStyle(fontSize: 50),
@@ -113,16 +117,16 @@ class HYHomePage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: [
+        items: const [
           BottomNavigationBarItem(label: "首页", icon: Icon(Icons.home)),
           BottomNavigationBarItem(label: "分类", icon: Icon(Icons.category))
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
         onPressed: () {
           Navigator.of(context).push(MaterialPageRoute(builder: (ctx) {
-            return HYDetailPage();
+            return const HYDetailPage();
           }));
         },
       ),
@@ -131,15 +135,17 @@ class HYHomePage extends StatelessWidget {
 }
 
 class HYDetailPage extends StatelessWidget {
+  const HYDetailPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("详情页"),
+        title: const Text("详情页"),
         backgroundColor: Colors.yellow,
         // backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
-      body: Center(
+      body: const Center(
         child: Text("detail pgae"),
       ),
       floatingActionButton: Theme(
@@ -148,7 +154,7 @@ class HYDetailPage extends StatelessWidget {
                 .colorScheme
                 .copyWith(secondary: Colors.pink)),
         child: FloatingActionButton(
-          child: Icon(Icons.pets),
+          child: const Icon(Icons.pets),
           onPressed: () {},
         ),
       ),

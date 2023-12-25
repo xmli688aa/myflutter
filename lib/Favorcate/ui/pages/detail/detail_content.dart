@@ -5,7 +5,7 @@ import 'package:my_app/14_screenfit/extension/int_extension.dart';
 class HYDetailContent extends StatelessWidget {
   final HYMealModel _mealModel;
 
-  HYDetailContent(this._mealModel);
+  const HYDetailContent(this._mealModel, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class HYDetailContent extends StatelessWidget {
 
   //1.横幅图片
   Widget buildBannerImage() {
-    return Container(
+    return SizedBox(
       width: double.infinity,
         child: Image.network(_mealModel.imageUrl)
     );
@@ -37,14 +37,14 @@ class HYDetailContent extends StatelessWidget {
         child: ListView.builder(
             padding: EdgeInsets.zero,
             shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             itemCount: _mealModel.ingredients.length,
             itemBuilder: (ctx, index) {
               return Card(
                 elevation: 3,
                 color: Colors.amber,
                 child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                  padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                   child: Text(_mealModel.ingredients[index]),
                 ),
               );
@@ -62,7 +62,7 @@ class HYDetailContent extends StatelessWidget {
           //ListView高度与内容高度一致
           shrinkWrap: true,
           //解决子视图可以滚动的问题
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           itemCount: _mealModel.steps.length,
           itemBuilder: (ctx,index){
             return ListTile(
@@ -74,7 +74,7 @@ class HYDetailContent extends StatelessWidget {
             );
         },
           separatorBuilder: (BuildContext context, int index) {
-          return Divider();
+          return const Divider();
         },
         ));
   }

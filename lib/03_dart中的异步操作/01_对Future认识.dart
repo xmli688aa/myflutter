@@ -1,4 +1,3 @@
-import 'dart:ffi';
 import 'dart:io';
 
 void main(List<String> args) {
@@ -25,7 +24,7 @@ Future<String> getNetwork() {
     //1.将耗时的操作包裹到future的回调函数中
     //1>只要有返回结果 就会执行future对应的then函数的回调
     //2>如果没有返回结果（有错误信息），需要在future回调中抛出一个异常
-    sleep(Duration(seconds: 3));
+    sleep(const Duration(seconds: 3));
     throw Exception(["错误的信息", "哈哈哈哈哈哈", "呵呵呵呵呵"]);
     // return "获取到的网络信息";
   });

@@ -21,8 +21,8 @@ class MYHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("基础的widget")),
-      body: TextRichDemo(),
+      appBar: AppBar(title: const Text("基础的widget")),
+      body: const TextRichDemo(),
     );
   }
 }
@@ -58,7 +58,7 @@ class TextDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
+    return const Text(
       "《定风波》 苏轼 莫听穿林打叶声，何妨吟啸且徐行。竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。",
       maxLines: 2,
       textAlign: TextAlign.left,

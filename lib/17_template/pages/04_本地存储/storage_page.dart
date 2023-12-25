@@ -18,7 +18,7 @@ class _ETStoragePageState extends State<ETStoragePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("shared_preferences的使用"),
+        title: const Text("shared_preferences的使用"),
       ),
       body: Center(
         child: Column(
@@ -26,16 +26,16 @@ class _ETStoragePageState extends State<ETStoragePage> {
             ElevatedButton(onPressed: () {
               print("保存");
               _saveData();
-            }, child: Text("保存数据")),
+            }, child: const Text("保存数据")),
             ElevatedButton(onPressed: () {
               print("获取");
               _getData();
-            }, child: Text("获取数据")),
-            Text("$_storageStr"),
+            }, child: const Text("获取数据")),
+            Text(_storageStr),
             ElevatedButton(onPressed: () {
               print("获取");
               _deleteData();
-            }, child: Text("清除数据")),
+            }, child: const Text("清除数据")),
           ],
         ),
       ),
@@ -55,7 +55,7 @@ class _ETStoragePageState extends State<ETStoragePage> {
     var res = "$result + $result2";
     print(res);
     setState(() {
-      _storageStr = res??"";
+      _storageStr = res;
     });
   }
   Future<void> _deleteData() async {

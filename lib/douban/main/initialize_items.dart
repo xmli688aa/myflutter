@@ -15,10 +15,10 @@ List<ETBottomBarItem> bottomNavigationbarItems =[
 ];
 
 List<Widget> pages = [
-  ETHomePage(),
-  ETSubjectPage(),
-  ETSubjectPage(),
-  ETSubjectPage(),
-  ETSubjectPage(),
+  const ETHomePage(),
+  const ETSubjectPage(),
+  const ETSubjectPage(),
+  const ETSubjectPage(),
+  const ETSubjectPage(),
 
 ];

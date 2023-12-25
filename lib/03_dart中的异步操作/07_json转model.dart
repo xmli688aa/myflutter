@@ -23,7 +23,7 @@ class MYHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("获取本地json文件数据")),
+      appBar: AppBar(title: const Text("获取本地json文件数据")),
       body: const HomePageContent(),
     );
   }
@@ -52,7 +52,7 @@ class _HomePageContentState extends State<HomePageContent> {
 
   @override
   Widget build(BuildContext context) {
-    return Text("hello world");
+    return const Text("hello world");
   }
 }
 

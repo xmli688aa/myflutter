@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class HYImageDetailPage extends StatelessWidget {
   final String _imageURL;
   final int _index;
-  HYImageDetailPage(this._imageURL,this._index);
+  const HYImageDetailPage(this._imageURL,this._index, {super.key});
 
   @override
   Widget build(BuildContext context) {

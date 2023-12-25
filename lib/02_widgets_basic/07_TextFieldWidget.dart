@@ -21,10 +21,10 @@ class MYHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Hello World")),
+      appBar: AppBar(title: const Text("Hello World")),
       body: const HomePageContent(),
       floatingActionButton:
-          FloatingActionButton(onPressed: () {}, child: Icon(Icons.add)),
+          FloatingActionButton(onPressed: () {}, child: const Icon(Icons.add)),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
@@ -61,7 +61,7 @@ class _HomePageContentState extends State<HomePageContent> {
             child: TextField(
               controller: userNameTextCl,
               decoration: InputDecoration(
-                  icon: Icon(Icons.people),
+                  icon: const Icon(Icons.people),
                   // labelText: "uesename",
                   hintText: "请输入用户名",
                   //去掉边框
@@ -71,14 +71,14 @@ class _HomePageContentState extends State<HomePageContent> {
                   filled: true,
                   fillColor: Colors.red[100]),
               onChanged: (value) {
-                print("onChanged：${value}");
+                print("onChanged：$value");
               },
               onSubmitted: (value) {
-                print("onSubmitted：${value}");
+                print("onSubmitted：$value");
               },
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           TextField(
@@ -86,7 +86,7 @@ class _HomePageContentState extends State<HomePageContent> {
             maxLines: 1,
             maxLength: 20,
             controller: passwordTextCl,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               icon: Icon(Icons.lock),
               // labelText: "password",
               hintText: "请输入密码",
@@ -98,16 +98,16 @@ class _HomePageContentState extends State<HomePageContent> {
               // fillColor: Colors.red[100]
             ),
             onChanged: (value) {
-              print("onChanged：${value}");
+              print("onChanged：$value");
             },
             onSubmitted: (value) {
-              print("onSubmitted：${value}");
+              print("onSubmitted：$value");
             },
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
-          Container(
+          SizedBox(
             width: double.infinity,
             height: 44,
             //给按钮设置高度宽度 需要外边包括一个container
@@ -117,7 +117,7 @@ class _HomePageContentState extends State<HomePageContent> {
                   // userNameTextCl.text = "";
                   passwordTextCl.text = "";
                 },
-                child: Text(
+                child: const Text(
                   "登录",
                   style: TextStyle(color: Colors.white, fontSize: 24),
                 )),

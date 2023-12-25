@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
@@ -44,7 +43,7 @@ class _ETVideoPlayerViewState extends State<ETVideoPlayerView> {
   }
   void setVideoPlayer() {
     _videoPlayerController =
-        VideoPlayerController.networkUrl(Uri.parse(this.widget.videoUrl))
+        VideoPlayerController.networkUrl(Uri.parse(widget.videoUrl))
           ..initialize().then((_) {
             print("视频播放器初始化成功");
             // 确保在初始化视频后显示第一帧，直至在按下播放按钮。
@@ -52,12 +51,12 @@ class _ETVideoPlayerViewState extends State<ETVideoPlayerView> {
               _videoPlayerController.play();
             });
           });
-    _videoPlayerController!.addListener(() {
+    _videoPlayerController.addListener(() {
       // print(_videoPlayerController.value.duration);
       // print(_videoPlayerController.value.position);
       getLastTime();
       setState(() {
-        _isPlaying = _videoPlayerController!.value.isPlaying;
+        _isPlaying = _videoPlayerController.value.isPlaying;
       });
     });
   }
@@ -70,29 +69,29 @@ class _ETVideoPlayerViewState extends State<ETVideoPlayerView> {
     int positionSeconds = positionTime.inSeconds;
     int lastSeconds = totalSeconds - positionSeconds;
     int hour = (lastSeconds / 3600).floor();
-    String hourStr = "${hour}";
+    String hourStr = "$hour";
     if (hour < 10) {
       hourStr = "0$hourStr";
     }
 
     int minute = ((lastSeconds % 3600) / 60).floor();
-    String minStr = "${minute}";
+    String minStr = "$minute";
     if (minute < 10) {
       minStr = "0$minStr";
     }
     int second = (lastSeconds % 60).floor();
-    String secStr = "${second}";
+    String secStr = "$second";
     if (second < 10) {
       secStr = "0$secStr";
     }
     // print("当前剩余时间${hourStr}:${minStr}:${secStr}") ;
-    _lastTime = "${hourStr}:${minStr}:${secStr}";
+    _lastTime = "$hourStr:$minStr:$secStr";
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("视频播放")),
+      appBar: AppBar(title: const Text("视频播放")),
       body: Container(
           // width: double.infinity,
           // height: 350,
@@ -134,10 +133,10 @@ class _ETVideoPlayerViewState extends State<ETVideoPlayerView> {
                     clipBehavior: Clip.hardEdge,
                     decoration: const BoxDecoration(shape: BoxShape.circle),
                     child: Container(
-                      child: Icon(Icons.assignment_return_rounded),
                       width: 30,
                       height: 30,
                       color: Colors.white60,
+                      child: const Icon(Icons.assignment_return_rounded),
                     ),
                   ),
                 ),
@@ -158,10 +157,10 @@ class _ETVideoPlayerViewState extends State<ETVideoPlayerView> {
                     clipBehavior: Clip.hardEdge,
                     decoration: const BoxDecoration(shape: BoxShape.circle),
                     child: Container(
-                      child: Icon(Icons.fast_forward),
                       width: 30,
                       height: 30,
                       color: Colors.white60,
+                      child: const Icon(Icons.fast_forward),
                     ),
                   ),
                 ),
@@ -186,7 +185,7 @@ class _ETVideoPlayerViewState extends State<ETVideoPlayerView> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 width: 5,
               ),
               GestureDetector(
@@ -202,10 +201,10 @@ class _ETVideoPlayerViewState extends State<ETVideoPlayerView> {
                   clipBehavior: Clip.hardEdge,
                   decoration: const BoxDecoration(shape: BoxShape.circle),
                   child: Container(
-                    child: Icon(_isPlaying ? Icons.pause : Icons.play_arrow),
                     width: 30,
                     height: 30,
                     color: Colors.white60,
+                    child: Icon(_isPlaying ? Icons.pause : Icons.play_arrow),
                   ),
                 ),
               ),
@@ -214,7 +213,7 @@ class _ETVideoPlayerViewState extends State<ETVideoPlayerView> {
                 child: VideoProgressIndicator(
                   _videoPlayerController,
                   allowScrubbing: true,
-                  colors: VideoProgressColors(
+                  colors: const VideoProgressColors(
                       backgroundColor: Colors.black,
                       bufferedColor: Colors.white,
                       playedColor: Colors.red),
@@ -223,7 +222,7 @@ class _ETVideoPlayerViewState extends State<ETVideoPlayerView> {
               Container(
                 width: 65,
                 alignment: Alignment.center,
-                child: Text("$_lastTime"),
+                child: Text(_lastTime),
               ),
               GestureDetector(
                 onTap: () {
@@ -240,7 +239,7 @@ class _ETVideoPlayerViewState extends State<ETVideoPlayerView> {
                       ETVideoFullPage(
                         controller: _videoPlayerController,
                       ),
-                    transitionDuration: Duration(seconds: 0),
+                    transitionDuration: const Duration(seconds: 0),
                   ),
                   );
 
@@ -249,14 +248,14 @@ class _ETVideoPlayerViewState extends State<ETVideoPlayerView> {
                   clipBehavior: Clip.hardEdge,
                   decoration: const BoxDecoration(shape: BoxShape.circle),
                   child: Container(
-                    child: Icon(Icons.fullscreen),
                     width: 30,
                     height: 30,
                     color: Colors.white60,
+                    child: const Icon(Icons.fullscreen),
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 5,
               ),
               //SizeBox设置父视图的高度为0 但是SizeBox还是会显示
@@ -317,7 +316,7 @@ class _ETVideoPlayerViewState extends State<ETVideoPlayerView> {
                 width: double.infinity,
                 height: 230,
                 color: Colors.grey,
-                child: Text("视频正在缓冲"),
+                child: const Text("视频正在缓冲"),
               ),
       ),
     );
@@ -343,7 +342,7 @@ class _ETVideoFullPageState extends State<ETVideoFullPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer.periodic(Duration(seconds: 1), (timer) {
+    Timer.periodic(const Duration(seconds: 1), (timer) {
       getLastTime();
     });
   }
@@ -360,8 +359,8 @@ class _ETVideoFullPageState extends State<ETVideoFullPage> {
             child: Container(
               width: 44,
               height: 44,
-              child: Icon(Icons.arrow_back),
               color: Colors.white60,
+              child: const Icon(Icons.arrow_back),
             ),
           ),
           Column(
@@ -370,15 +369,15 @@ class _ETVideoFullPageState extends State<ETVideoFullPage> {
               Center(
                 child: Container(
                   child: AspectRatio(
-                    aspectRatio: this.widget.controller.value.aspectRatio,
-                    child: VideoPlayer(this.widget.controller),
+                    aspectRatio: widget.controller.value.aspectRatio,
+                    child: VideoPlayer(widget.controller),
                   ),
                 ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
                   GestureDetector(
@@ -395,11 +394,11 @@ class _ETVideoFullPageState extends State<ETVideoFullPage> {
                       clipBehavior: Clip.hardEdge,
                       decoration: const BoxDecoration(shape: BoxShape.circle),
                       child: Container(
-                        child:
-                            Icon(_isPlaying ? Icons.pause : Icons.play_arrow),
                         width: 30,
                         height: 30,
                         color: Colors.white60,
+                        child:
+                            Icon(_isPlaying ? Icons.pause : Icons.play_arrow),
                       ),
                     ),
                   ),
@@ -408,7 +407,7 @@ class _ETVideoFullPageState extends State<ETVideoFullPage> {
                     child: VideoProgressIndicator(
                       widget.controller,
                       allowScrubbing: true,
-                      colors: VideoProgressColors(
+                      colors: const VideoProgressColors(
                           backgroundColor: Colors.grey,
                           bufferedColor: Colors.white,
                           playedColor: Colors.red),
@@ -418,8 +417,8 @@ class _ETVideoFullPageState extends State<ETVideoFullPage> {
                     width: 65,
                     alignment: Alignment.center,
                     child: Text(
-                      "$_lastTime",
-                      style: TextStyle(
+                      _lastTime,
+                      style: const TextStyle(
                         fontSize: 12,
                         color: Colors.white,
                         decoration: TextDecoration.none,
@@ -443,25 +442,25 @@ class _ETVideoFullPageState extends State<ETVideoFullPage> {
     int positionSeconds = positionTime.inSeconds;
     int lastSeconds = totalSeconds - positionSeconds;
     int hour = (lastSeconds / 3600).floor();
-    String hourStr = "${hour}";
+    String hourStr = "$hour";
     if (hour < 10) {
       hourStr = "0$hourStr";
     }
 
     int minute = ((lastSeconds % 3600) / 60).floor();
-    String minStr = "${minute}";
+    String minStr = "$minute";
     if (minute < 10) {
       minStr = "0$minStr";
     }
     int second = (lastSeconds % 60).floor();
-    String secStr = "${second}";
+    String secStr = "$second";
     if (second < 10) {
       secStr = "0$secStr";
     }
     // print("当前剩余时间${hourStr}:${minStr}:${secStr}") ;
     if (mounted) {
       setState(() {
-        _lastTime = "${hourStr}:${minStr}:${secStr}";
+        _lastTime = "$hourStr:$minStr:$secStr";
       });
     }
   }

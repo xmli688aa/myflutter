@@ -23,7 +23,7 @@ class MYHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("商品列表")),
-      body: MYHomeContent(
+      body: const MYHomeContent(
         "我是传递过去的数据",
       ),
     );
@@ -34,7 +34,7 @@ class MYHomePage extends StatelessWidget {
 class MYHomeContent extends StatefulWidget {
   //这里定义属性 外部传递过来 同时state就可以通过this.widget.属性的方式传递
   final String message;
-  MYHomeContent(this.message);
+  const MYHomeContent(this.message, {super.key});
   @override
   State<MYHomeContent> createState() => _MYHomeContentState();
 }
@@ -51,12 +51,12 @@ class _MYHomeContentState extends State<MYHomeContent> {
         _getBtns(),
         Text(
           "当前计数：$counter",
-          style: TextStyle(fontSize: 20),
+          style: const TextStyle(fontSize: 20),
         ),
         //接收外部传递过来的信息 使用this.widget.属性的方式获取
         Text(
-          "接收信息：${this.widget.message}",
-          style: TextStyle(fontSize: 20),
+          "接收信息：${widget.message}",
+          style: const TextStyle(fontSize: 20),
         ),
       ]),
     );
@@ -72,9 +72,9 @@ class _MYHomeContentState extends State<MYHomeContent> {
               backgroundColor: MaterialStateProperty.all(Colors.red),
             ),
             onPressed: clickAddBtn,
-            child: Row(
+            child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: const [
+              children: [
                 Icon(Icons.add),
                 Text(
                   "1",

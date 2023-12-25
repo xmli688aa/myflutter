@@ -6,8 +6,9 @@ import 'Setting.dart';
 class Tabs extends StatefulWidget {
   final index;
 
-  Tabs({this.index = 0});
+  const Tabs({super.key, this.index = 0});
 
+  @override
   _TabsState createState() => _TabsState();
 }
 
@@ -16,9 +17,9 @@ class _TabsState extends State<Tabs> {
 
 
   final List _pageList = [
-    HomePage(),
-    CategoryPage(),
-    SettingPage(),
+    const HomePage(),
+    const CategoryPage(),
+    const SettingPage(),
   ];
 
 
@@ -57,13 +58,13 @@ class _TabsState extends State<Tabs> {
               children: <Widget>[
                 Expanded(
                     child: UserAccountsDrawerHeader(
-                  accountName: Text("大地老师"),
-                  accountEmail: Text("dadi@itying.com"),
-                  currentAccountPicture: CircleAvatar(
+                  accountName: const Text("大地老师"),
+                  accountEmail: const Text("dadi@itying.com"),
+                  currentAccountPicture: const CircleAvatar(
                     backgroundImage: NetworkImage(
                         "https://www.itying.com/images/flutter/3.png"),
                   ),
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       image: DecorationImage(
                     image: NetworkImage(
                         "https://www.itying.com/images/flutter/2.png"),
@@ -78,29 +79,29 @@ class _TabsState extends State<Tabs> {
                 ))
               ],
             ),
-            ListTile(
+            const ListTile(
               leading: CircleAvatar(child: Icon(Icons.home)),
               title: Text("我的空间"),
             ),
-            Divider(),
+            const Divider(),
             ListTile(
-              leading: CircleAvatar(child: Icon(Icons.people)),
-              title: Text("用户中心"),
+              leading: const CircleAvatar(child: Icon(Icons.people)),
+              title: const Text("用户中心"),
               onTap: () {
                 Navigator.of(context).pop(); //隐藏侧边栏
                 Navigator.pushNamed(context, '/user');
               },
             ),
-            Divider(),
-            ListTile(
+            const Divider(),
+            const ListTile(
               leading: CircleAvatar(child: Icon(Icons.settings)),
               title: Text("设置中心"),
             ),
-            Divider(),
+            const Divider(),
           ],
         ),
       ),
-      endDrawer: Drawer(
+      endDrawer: const Drawer(
         child: Text('右侧侧边栏'),
       ),
     );

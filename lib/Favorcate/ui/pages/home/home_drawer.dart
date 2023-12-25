@@ -7,24 +7,24 @@ class HYHomeDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
+    return  SizedBox(
       //外面包裹一层Container 来控制Drawer的宽度
         width: 250.px,
         // color: Colors.white,
         child: Drawer(
           child: Scaffold(
             appBar: AppBar(
-              title: Text("开始动手",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),),
+              title: const Text("开始动手",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),),
               backgroundColor: Colors.amber,
             ),
             body: Column(
               children: [
-                SizedBox(height: 10,),
-                buildListTitle(Icon(Icons.restaurant ),"进餐",(){
+                const SizedBox(height: 10,),
+                buildListTitle(const Icon(Icons.restaurant ),"进餐",(){
                   Navigator.of(context).pop();
                   print("点击了进餐");
                 }),
-                buildListTitle(Icon(Icons.settings ),"过滤",(){
+                buildListTitle(const Icon(Icons.settings ),"过滤",(){
                   Navigator.of(context).pop();
                   Navigator.of(context).pushNamed(HYFilterScreen.routeName);
                 }),
@@ -39,7 +39,7 @@ class HYHomeDrawer extends StatelessWidget {
   Widget buildListTitle(Widget icon, String title,void Function() handler){
   return ListTile(
     leading: icon,
-    title: Text(title,style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
+    title: Text(title,style: const TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
     onTap: handler,
 
   );

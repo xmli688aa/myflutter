@@ -21,10 +21,10 @@ class MYHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Hello World")),
+      appBar: AppBar(title: const Text("Hello World")),
       body: const HomePageContent(),
       floatingActionButton:
-          FloatingActionButton(onPressed: () {}, child: Icon(Icons.add)),
+          FloatingActionButton(onPressed: () {}, child: const Icon(Icons.add)),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
@@ -43,7 +43,6 @@ class _HomePageContentState extends State<HomePageContent> {
   @override
   Widget build(BuildContext context) {
     return ImagesDemo(imageUrl: imageUrl);
-    ;
   }
 }
 
@@ -69,7 +68,7 @@ class ImagesDemo extends StatelessWidget {
           // fit: BoxFit.fill,
         ),
         Image(
-          image: NetworkImage("错误的url"),
+          image: const NetworkImage("错误的url"),
           width: 300,
           height: 200,
           fit: BoxFit.fill,

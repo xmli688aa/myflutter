@@ -1,14 +1,15 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:dio/dio.dart';
 
 void main() {
   //1.Flutter启动需要执行runApp函数
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
 
@@ -56,7 +57,7 @@ class MYHomePage extends StatelessWidget {
 
   GridView GridViewDemo2() {
     return GridView(
-      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
         maxCrossAxisExtent: 350,
       ),
       children: List.generate(20, (index) {

@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'shared/size_fit.dart';
 import './extension/int_extension.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     HYSizeFit.initialize();
@@ -14,12 +16,14 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
           primarySwatch: Colors.blue, splashColor: Colors.transparent),
-      home: HYHomePage(),
+      home: const HYHomePage(),
     );
   }
 }
 
 class HYHomePage extends StatelessWidget {
+  const HYHomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
 
@@ -36,7 +40,7 @@ class HYHomePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("首页"),
+        title: const Text("首页"),
       ),
       body: Center(
         child: Container(

@@ -24,7 +24,7 @@ class _ETHomePageContentState extends State<ETHomePageContent> {
     return ListView.builder(
         itemCount: 30,
         itemBuilder: (ctx, index) {
-          return ETHomeMovieItem();
+          return const ETHomeMovieItem();
         });
   }
 
