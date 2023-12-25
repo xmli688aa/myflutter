@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:fluttertoast/fluttertoast.dart';
+
 class ETDialogPage extends StatefulWidget {
   static String routeName = "./ETDialogPage";
   const ETDialogPage({Key? key}) : super(key: key);
@@ -29,7 +31,9 @@ class _ETDialogPageState extends State<ETDialogPage> {
               _modalBottomSheet();
 
             }, child: const Text("AcitonSheet底部弹出框-showModalBottomSheet")),
-         
+            ElevatedButton(onPressed: () {
+              _toast();
+            }, child: const Text("toast-fluttertoast第三方库")),
           ],
         ),
       ),
@@ -138,5 +142,16 @@ class _ETDialogPageState extends State<ETDialogPage> {
        ),
      );
    });
+  }
+  _toast(){
+    Fluttertoast.showToast(
+        msg: "这是一个提示信息",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,//位置
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0
+    );
   }
 }
