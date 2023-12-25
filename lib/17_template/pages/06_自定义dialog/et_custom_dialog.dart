@@ -7,14 +7,18 @@ class ETCustomDialog extends Dialog {
   String title;
   String content;
   ETCustomDialog(this.title,this.content);
-
-  _showTimer(context){
-    var timer ;
-    timer = Timer.periodic(Duration(seconds: 2), (t) {
-      Navigator.pop(context);
-      t.cancel();//取消定时器 也可以用timer.cancel
+  var _timer ;
+  bool _isPop = false;
+  _showTimer(BuildContext context){
+    _timer = Timer.periodic(Duration(seconds: 2), (t) {
+        print("timer执行完毕");
+        if(_isPop == false){
+          Navigator.pop(context);
+        }
+        t.cancel();//取消定时器 也可以用timer.cancel
     });
   }
+
   @override
   Widget build(BuildContext context) {
     _showTimer(context);
@@ -42,6 +46,7 @@ class ETCustomDialog extends Dialog {
                       child: InkWell(
                         child: Icon(Icons.close),
                         onTap: (){
+                          _isPop = true;
                           Navigator.pop(context);
                         },
                       ),
