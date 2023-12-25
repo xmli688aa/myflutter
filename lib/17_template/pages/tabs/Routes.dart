@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:my_app/17_template/pages/02_%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BEvideoplayer/et_videoplayer_custom.dart';
+import 'package:my_app/17_template/pages/05_dialog/dialog.dart';
 import '../03_图片轮播/swipe_page.dart';
 import '../04_本地存储/storage_page.dart';
 import 'Tabs.dart';
@@ -13,6 +14,7 @@ final routes = {
   ETVideoPlayerView.routeName: (context)=> ETVideoPlayerView(videoUrl: "https://highlight-video.cdn.bcebos.com/video/6s/cc18b784-9e87-11ee-a6b1-b4055dd1839b.mp4"),
   ETSwiperPage.routeName: (context)=> const ETSwiperPage(),
   ETStoragePage.routeName: (context)=> const ETStoragePage(),
+  ETDialogPage.routeName: (context)=> const ETDialogPage(),
 };
 //固定写法
 var onGenerateRoute = (RouteSettings settings) {
