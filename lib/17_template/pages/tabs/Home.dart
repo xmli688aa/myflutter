@@ -17,32 +17,32 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> { 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(       
+    return SingleChildScrollView(
+      padding: EdgeInsets.all(10),
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _buildElevatedButton(context,"跳转到下拉刷新，上拉分页加载更多页面",NewsPage.routeName),
-          _buildElevatedButton(context,"跳转视频播放页面",ETVideoPlayerView.routeName),
-          _buildElevatedButton(context,"轮播图card_swiper的使用",ETSwiperPage.routeName),
-          _buildElevatedButton(context,"数据本地存储",ETStoragePage.routeName),
-          _buildElevatedButton(context,"Dialog页面",ETDialogPage.routeName),
-          _buildButton(context,"自定义Dialog页面",(){
+          _buildElevatedButton(context,"01:跳转到下拉刷新，上拉分页加载更多页面",NewsPage.routeName),
+          _buildElevatedButton(context,"02:跳转视频播放页面",ETVideoPlayerView.routeName),
+          _buildElevatedButton(context,"03:轮播图card_swiper的使用",ETSwiperPage.routeName),
+          _buildElevatedButton(context,"04:数据本地存储",ETStoragePage.routeName),
+          _buildElevatedButton(context,"05:Dialog页面",ETDialogPage.routeName),
+          _buildButton(context,"06:自定义Dialog页面",(){
             showDialog(context: context, builder:(context){
               return ETCustomDialog("关于我们","内容是很多很西");
             });
           }),
-          _buildElevatedButton(context,"eventbus使用",EventBusPage.routeName),
-
+          _buildElevatedButton(context,"07:eventbus使用",EventBusPage.routeName),
 
         ],
-       
       ),
     );
   }
 
   Widget _buildElevatedButton(BuildContext context, String title, String routeName){
    return ElevatedButton(
-      child:  Text(title),
+      child:  Text(title,style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
       onPressed: (){
         Navigator.pushNamed(context, routeName);
       },
@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
   }
   Widget _buildButton(BuildContext context,String title,Function func){
     return ElevatedButton(
-      child:  Text(title),
+      child:  Text(title,style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
       onPressed: (){
         func();
       },
