@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'storage.dart';
 class ETStoragePage extends StatefulWidget {
-  static String routeName = "./ETStoragePage";
+  static String routeName = "/ETStoragePage";
 
   const ETStoragePage({Key? key}) : super(key: key);
 

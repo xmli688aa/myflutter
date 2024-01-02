@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class ETDialogPage extends StatefulWidget {
-  static String routeName = "./ETDialogPage";
+  static String routeName = "/ETDialogPage";
   const ETDialogPage({Key? key}) : super(key: key);
 
   @override

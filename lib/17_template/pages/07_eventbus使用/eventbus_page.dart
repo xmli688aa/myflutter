@@ -4,7 +4,7 @@ import 'eventbus_page2.dart';
 import 'global_manager.dart';
 
 class EventBusPage extends StatefulWidget {
-  static String routeName = "./EventBusPage";
+  static String routeName = "/EventBusPage";
 
   const EventBusPage({super.key});
 

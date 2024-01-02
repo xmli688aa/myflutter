@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class ETVideoPlayerView extends StatefulWidget {
-  static String routeName = "./ETVideoPlayerView";
+  static String routeName = "/ETVideoPlayerView";
   //外部传过来视频的url
   final String videoUrl;
   double videoWidth; //视频播放器宽度

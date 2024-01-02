@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:card_swiper/card_swiper.dart';
 
 class ETSwiperPage extends StatefulWidget {
-  static String routeName = "./ETSwiperPage";
+  static String routeName = "/ETSwiperPage";
 
   const ETSwiperPage({Key? key}) : super(key: key);
 

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'pages/tabs/Routes.dart';
+import 'package:get/get.dart';
+import 'package:my_app/17_template/pages/tabs/Tabs.dart';
+import 'Routes.dart';
 void main() => runApp(const MyApp());
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -7,12 +9,21 @@ class MyApp extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-    
+    Color schemeColor = Colors.lightBlue;
+
+    return GetMaterialApp(
       debugShowCheckedModeBanner:false ,  //去掉debug图标
-      // home:Tabs(),   
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: schemeColor),
+        appBarTheme:  AppBarTheme(
+          backgroundColor: schemeColor,
+        ),
+        useMaterial3: true,
+      ),
+      // home:Tabs(),
       initialRoute: '/',     //初始化的时候加载的路由
       onGenerateRoute: onGenerateRoute,
+      getPages: getPages,
     );
   }
 }

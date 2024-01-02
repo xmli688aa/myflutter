@@ -7,7 +7,8 @@ import 'package:my_app/17_template/pages/04_%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8
 import 'package:my_app/17_template/pages/05_dialog/dialog.dart';
 import 'package:my_app/17_template/pages/06_%E8%87%AA%E5%AE%9A%E4%B9%89dialog/et_custom_dialog.dart';
 import 'package:my_app/17_template/pages/07_eventbus%E4%BD%BF%E7%94%A8/eventbus_page.dart';
-
+import 'package:get/get.dart';
+import 'package:my_app/17_template/pages/08_GetX%E7%9A%84%E4%BD%BF%E7%94%A8/getx_page_demo.dart';
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
   @override
@@ -34,6 +35,8 @@ class _HomePageState extends State<HomePage> {
             });
           }),
           _buildElevatedButton(context,"07:eventbus使用",EventBusPage.routeName),
+          // 导航使用GetX的方式跳转
+          _buildElevatedButton(context,"08:GetX使用",ETGetXPageDemo.routeName),
 
         ],
       ),
@@ -44,7 +47,9 @@ class _HomePageState extends State<HomePage> {
    return ElevatedButton(
       child:  Text(title,style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
       onPressed: (){
-        Navigator.pushNamed(context, routeName);
+        // Navigator.pushNamed(context, routeName);
+        // 使用GetX命名路由的方式跳转
+        Get.toNamed(routeName);
       },
     );
   }
