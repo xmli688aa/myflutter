@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ETGetXPageDemo extends StatefulWidget {
   static String routeName = "/ETGetXPageDemo";
+
   const ETGetXPageDemo({super.key});
 
   @override
@@ -15,9 +17,90 @@ class _ETGetXPageDemoState extends State<ETGetXPageDemo> {
       appBar: AppBar(
         title: Text("GetXPage"),
       ),
-      body: Center(
-        child: Text("GetXPage"),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ElevatedButton(
+              child: Text("GetX:Snackbar的使用"),
+              onPressed: () {
+                _showGetSnackbar();
+              },
+            ),
+            ElevatedButton(
+              child: Text("GetX:Dialog的使用"),
+              onPressed: () {
+                _showGetDefaultLog();
+              },
+            ),
+            ElevatedButton(
+              child: Text("GetX:BottomSheet的使用"),
+              onPressed: () {
+                _showGetBottomSheet();
+              },
+            ),
+          ],
+        ),
       ),
+    );
+  }
+
+  _showGetSnackbar() {
+    Get.snackbar("Snackbar 标题", "欢迎使用Snackbar", onTap: (snack) {
+      print("点击了${snack.runtimeType}");
+    });
+  }
+
+  _showGetDefaultLog() {
+    Get.defaultDialog(
+      title: "温馨提示",
+      content: Text("距离2024年春节还剩36天"),
+      backgroundColor: Colors.white,
+      contentPadding: EdgeInsets.all(30),
+      //内容的内边距，默认（EdgeInsets.all(8)）
+      radius: 5,
+      //弹出框的圆角大小，默认20
+      barrierDismissible: false,
+      //是否可以通过点击背景关闭弹窗
+      textCancel: "取消",
+      textConfirm: "确定",
+      onConfirm: () {
+        print("点击了确定");
+        Get.back();
+      },
+      onCancel: () {
+        print("点击了取消");
+      },
+    );
+  }
+
+  _showGetBottomSheet() {
+    Get.bottomSheet(
+        backgroundColor:Colors.white,
+        ignoreSafeArea:true,
+        // shape:BorderDirectional(),
+        Container(
+          child: Wrap(
+            children: [
+              ListTile(
+                leading: Icon(Icons.wb_sunny_outlined),
+                title: Text("白天模式"),
+                onTap: () {
+                  Get.changeTheme(ThemeData.light());
+                },
+              ),
+              Divider(),
+              ListTile(
+                leading: Icon(Icons.wb_sunny),
+                title: Text("黑夜模式"),
+                onTap: () {
+                  Get.changeTheme(ThemeData.dark());
+                },
+              )
+            ],
+          ),
+        )
     );
   }
 }
