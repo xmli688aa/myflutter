@@ -15,7 +15,7 @@ class _ETDialogPageState extends State<ETDialogPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("shared_preferences的使用"),
+        title: const Text("ETDialogPage"),
       ),
       body: Center(
         child: Column(

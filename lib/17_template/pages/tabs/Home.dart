@@ -6,6 +6,7 @@ import 'package:my_app/17_template/pages/03_%E5%9B%BE%E7%89%87%E8%BD%AE%E6%92%AD
 import 'package:my_app/17_template/pages/04_%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8/storage_page.dart';
 import 'package:my_app/17_template/pages/05_dialog/dialog.dart';
 import 'package:my_app/17_template/pages/06_%E8%87%AA%E5%AE%9A%E4%B9%89dialog/et_custom_dialog.dart';
+import 'package:my_app/17_template/pages/07_eventbus%E4%BD%BF%E7%94%A8/eventbus_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -30,6 +31,8 @@ class _HomePageState extends State<HomePage> {
               return ETCustomDialog("关于我们","内容是很多很西");
             });
           }),
+          _buildElevatedButton(context,"eventbus使用",EventBusPage.routeName),
+
 
         ],
        

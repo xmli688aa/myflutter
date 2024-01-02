@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/17_template/pages/02_%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BEvideoplayer/et_videoplayer_custom.dart';
 import 'package:my_app/17_template/pages/05_dialog/dialog.dart';
+import 'package:my_app/17_template/pages/07_eventbus%E4%BD%BF%E7%94%A8/eventbus_page.dart';
 import '../03_图片轮播/swipe_page.dart';
 import '../04_本地存储/storage_page.dart';
 import 'Tabs.dart';
@@ -15,6 +16,7 @@ final routes = {
   ETSwiperPage.routeName: (context)=> const ETSwiperPage(),
   ETStoragePage.routeName: (context)=> const ETStoragePage(),
   ETDialogPage.routeName: (context)=> const ETDialogPage(),
+  EventBusPage.routeName: (context)=> const EventBusPage(),
 };
 //固定写法
 var onGenerateRoute = (RouteSettings settings) {
