@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:my_app/17_template/pages/08_GetX%E7%9A%84%E4%BD%BF%E7%94%A8/Obx%E5%93%8D%E5%BA%94%E5%BC%8F%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/getx_obx_page.dart';
 
 class ETGetXPageDemo extends StatefulWidget {
   static String routeName = "/ETGetXPageDemo";
@@ -38,6 +39,12 @@ class _ETGetXPageDemoState extends State<ETGetXPageDemo> {
               child: Text("GetX:BottomSheet的使用"),
               onPressed: () {
                 _showGetBottomSheet();
+              },
+            ),
+            ElevatedButton(
+              child: Text("GetX:Obx状态管理"),
+              onPressed: () {
+                Get.toNamed(GetXObxPage.routeName);
               },
             ),
           ],
