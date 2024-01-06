@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:my_app/17_template/pages/02_%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BEvideoplayer/et_videoplayer_custom.dart';
 import 'package:my_app/17_template/pages/05_dialog/dialog.dart';
 import 'package:my_app/17_template/pages/07_eventbus%E4%BD%BF%E7%94%A8/eventbus_page.dart';
+import 'package:my_app/17_template/pages/08_GetX%E7%9A%84%E4%BD%BF%E7%94%A8/GetXController/getx_controller_example/getx_controller_example_view.dart';
 import 'package:my_app/17_template/pages/08_GetX%E7%9A%84%E4%BD%BF%E7%94%A8/Obx%E5%93%8D%E5%BA%94%E5%BC%8F%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/getx_obx_page.dart';
 import 'package:my_app/17_template/pages/08_GetX%E7%9A%84%E4%BD%BF%E7%94%A8/getx_page_demo.dart';
 import 'pages/03_图片轮播/swipe_page.dart';
@@ -31,6 +32,7 @@ final List<GetPage> getPages = [
   GetPage(name: EventBusPage.routeName, page: ()=>const EventBusPage()),
   GetPage(name: ETGetXPageDemo.routeName, page: ()=>const ETGetXPageDemo()),
   GetPage(name: GetXObxPage.routeName, page: ()=>GetXObxPage()),
+  GetPage(name: GetxControllerExamplePage.routeName, page: ()=>GetxControllerExamplePage()),
 
 ];
 //固定写法
