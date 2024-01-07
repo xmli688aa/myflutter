@@ -37,6 +37,7 @@ final List<GetPage> getPages = [
 ];
 //固定写法
 var onGenerateRoute = (RouteSettings settings) {
+  print("onGenerateRoute");
   // 统一处理
   final String? name = settings.name;
   final Function pageContentBuilder = routes[name] as Function;
