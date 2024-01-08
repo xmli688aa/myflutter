@@ -8,6 +8,7 @@ import 'package:my_app/17_template/pages/06_%E8%87%AA%E5%AE%9A%E4%B9%89dialog/et
 import 'package:my_app/17_template/pages/07_eventbus%E4%BD%BF%E7%94%A8/eventbus_page.dart';
 import 'package:get/get.dart';
 import 'package:my_app/17_template/pages/08_GetX%E7%9A%84%E4%BD%BF%E7%94%A8/getx_page_demo.dart';
+import 'package:my_app/17_template/pages/09_webPage%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD/web_page.dart';
 import 'package:my_app/17_template/pages/tabs/home_drawer.dart';
 
 class HomePage extends StatefulWidget {
@@ -39,7 +40,7 @@ class _HomePageState extends State<HomePage> {
             _buildElevatedButton(context, "04:数据本地存储", ETStoragePage.routeName),
             _buildElevatedButton(
                 context, "05:Dialog页面", ETDialogPage.routeName),
-            _buildButton(context, "06:自定义Dialog页面", () {
+            _buildButton( title:"06:自定义Dialog页面", onPressed:() {
               showDialog(
                   context: context,
                   builder: (context) {
@@ -51,6 +52,9 @@ class _HomePageState extends State<HomePage> {
             // 导航使用GetX的方式跳转
             _buildElevatedButton(
                 context, "08:GetX使用", ETGetXPageDemo.routeName),
+          _buildButton(title: "09：加载web页面", onPressed: (){
+            Get.to(WebPage());
+          }),
           ],
         ),
       ),
@@ -76,14 +80,14 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _buildButton(BuildContext context, String title, Function func) {
+  Widget _buildButton({required String title, required Function onPressed}) {
     return ElevatedButton(
       child: Text(
         title,
         style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
       ),
       onPressed: () {
-        func();
+        onPressed();
       },
     );
   }
