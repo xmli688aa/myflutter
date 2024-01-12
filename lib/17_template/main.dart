@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_app/17_template/pages/tabs/Tabs.dart';
+import 'package:my_app/17_template/pages/08_GetX%E7%9A%84%E4%BD%BF%E7%94%A8/GetXController/getx_controller_example/app_global_controller.dart';
 import 'Routes.dart';
 void main() => runApp(const MyApp());
 class MyApp extends StatelessWidget {
@@ -10,6 +10,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Color schemeColor = Colors.lightBlue;
+    //注入全局的状态
+    Get.put(AppGlobalController());
 
     return GetMaterialApp(
       debugShowCheckedModeBanner:false ,  //去掉debug图标

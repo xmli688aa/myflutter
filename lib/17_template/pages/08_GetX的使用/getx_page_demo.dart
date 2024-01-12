@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_app/17_template/pages/08_GetX%E7%9A%84%E4%BD%BF%E7%94%A8/Obx%E5%93%8D%E5%BA%94%E5%BC%8F%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/getx_obx_page.dart';
 
+import 'GetXController/getx_controller_example/app_global_controller.dart';
+import 'GetXController/getx_controller_example/getx_controller_example_logic.dart';
 import 'GetXController/getx_controller_example/getx_controller_example_view.dart';
 
 class ETGetXPageDemo extends StatefulWidget {
@@ -14,6 +16,8 @@ class ETGetXPageDemo extends StatefulWidget {
 }
 
 class _ETGetXPageDemoState extends State<ETGetXPageDemo> {
+  final AppGlobalController globalController  = Get.put(AppGlobalController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,6 +57,14 @@ class _ETGetXPageDemoState extends State<ETGetXPageDemo> {
               child: Text("GetX:GetxController将UI代码、业务逻辑分开"),
               onPressed: () {
                 Get.toNamed(GetxControllerExamplePage.routeName);
+              },
+            ),
+            ElevatedButton(
+              child: Obx(() => Text("点击上方按钮，更新globalController的userName：${globalController.userName.value}")),
+              onPressed: () {
+                setState(() {
+                  print('${globalController.userName}');
+                });
               },
             ),
           ],

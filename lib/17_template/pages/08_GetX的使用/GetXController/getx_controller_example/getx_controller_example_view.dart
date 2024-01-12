@@ -29,6 +29,10 @@ class _GetxControllerExamplePageState extends State<GetxControllerExamplePage> {
             ElevatedButton(onPressed: (){
               logic.convertToUpperCase();
             }, child: Text("改成大写")),
+            ElevatedButton(onPressed: (){
+              logic.jumpToSecondPage();
+
+            }, child: Text("跳转second页面修改globalController的userName")),
           ],
         ),
       ),
