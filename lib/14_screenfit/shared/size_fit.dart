@@ -11,6 +11,7 @@ class HYSizeFit {
   static double screenHeight= 0;
   static double dpr= 0;
   static double statusHeight= 0;
+  static double bottomHeight= 0;
 
   static double rpx= 0;
   static double px= 0;
@@ -35,6 +36,7 @@ class HYSizeFit {
     // 4.状态栏高度
     // statusHeight = window.padding.top / dpr;
     statusHeight = device.padding.top / dpr;
+    bottomHeight = device.padding.bottom / dpr;
 
     // 5.计算rpx的大小
     rpx = screenWidth / standardSize;

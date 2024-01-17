@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_app/17_template/pages/00_Widget%E4%BD%BF%E7%94%A8%E6%A1%88%E4%BE%8B/visibility_page%E6%98%BE%E9%9A%90%E7%BB%84%E4%BB%B6.dart';
+import 'package:my_app/17_template/pages/00_Widget%E4%BD%BF%E7%94%A8%E6%A1%88%E4%BE%8B/02_tabBar_tabbarView.dart';
+import '../00_Widget使用案例/01_visibility_page显隐组件.dart';
 import 'home_drawer.dart';
 
 class SettingPage extends StatefulWidget {
@@ -27,7 +28,13 @@ class _SettingPageState extends State<SettingPage> {
                 context: context,
                 title: "Visibility显隐组件",
                 onPressed: () {
-                  Get.to(VisibilityPage());
+                  Get.to(const VisibilityPage());
+                }),
+            _buildElevatedButton(
+                context: context,
+                title: "tabbar_tabbarview使用",
+                onPressed: () {
+                  Get.to(const MyTabBarPage());
                 }),
           ],
         ),
