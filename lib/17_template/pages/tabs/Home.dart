@@ -11,6 +11,10 @@ import 'package:my_app/17_template/pages/08_GetX%E7%9A%84%E4%BD%BF%E7%94%A8/getx
 import 'package:my_app/17_template/pages/09_webPage%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD/web_page.dart';
 import 'package:my_app/17_template/pages/tabs/home_drawer.dart';
 
+import '../10_Flow流式布局动画圆形菜单/bottom_5_page.dart';
+import '../10_Flow流式布局动画圆形菜单/demo_flow_menu.dart';
+import '../10_Flow流式布局动画圆形菜单/flow_menu_page.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -23,10 +27,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('首页'),
+        title: const Text('首页'),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,21 +44,31 @@ class _HomePageState extends State<HomePage> {
             _buildElevatedButton(context, "04:数据本地存储", ETStoragePage.routeName),
             _buildElevatedButton(
                 context, "05:Dialog页面", ETDialogPage.routeName),
-            _buildButton( title:"06:自定义Dialog页面", onPressed:() {
-              showDialog(
-                  context: context,
-                  builder: (context) {
-                    return ETCustomDialog("关于我们", "内容是很多很西");
-                  });
-            }),
+            _buildButton(
+                title: "06:自定义Dialog页面",
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: (context) {
+                        return ETCustomDialog("关于我们", "内容是很多很西");
+                      });
+                }),
             _buildElevatedButton(
                 context, "07:eventbus使用", EventBusPage.routeName),
             // 导航使用GetX的方式跳转
             _buildElevatedButton(
                 context, "08:GetX使用", ETGetXPageDemo.routeName),
-          _buildButton(title: "09：加载web页面", onPressed: (){
-            Get.to(WebPage());
-          }),
+            _buildButton(
+                title: "09：加载web页面",
+                onPressed: () {
+                  Get.to(WebPage());
+                }),
+            _buildButton(
+                title: "10：加载半圆形菜单",
+                onPressed: () {
+                  Get.to(Bottom5Page());
+                }),
+
           ],
         ),
       ),
