@@ -14,6 +14,7 @@ import 'package:my_app/17_template/pages/tabs/home_drawer.dart';
 import '../10_Flow流式布局动画圆形菜单/bottom_5_page.dart';
 import '../10_Flow流式布局动画圆形菜单/demo_flow_menu.dart';
 import '../10_Flow流式布局动画圆形菜单/flow_menu_page.dart';
+import '../11_path_provider使用/path_provider_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -68,6 +69,11 @@ class _HomePageState extends State<HomePage> {
                 onPressed: () {
                   Get.to(Bottom5Page());
                 }),
+            _buildButton(
+                title: "11：文件、文件夹操作 path_provider的使用",
+                onPressed: () {
+                  Get.to(PathProviderPage());
+                }),
 
           ],
         ),
@@ -81,28 +87,34 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildElevatedButton(
       BuildContext context, String title, String routeName) {
-    return ElevatedButton(
-      child: Text(
-        title,
-        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+    return Padding(
+      padding: const EdgeInsets.all(4.0),
+      child: ElevatedButton(
+        child: Text(
+          title,
+          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+        ),
+        onPressed: () {
+          // Navigator.pushNamed(context, routeName);
+          // 使用GetX命名路由的方式跳转
+          Get.toNamed(routeName);
+        },
       ),
-      onPressed: () {
-        // Navigator.pushNamed(context, routeName);
-        // 使用GetX命名路由的方式跳转
-        Get.toNamed(routeName);
-      },
     );
   }
 
   Widget _buildButton({required String title, required Function onPressed}) {
-    return ElevatedButton(
-      child: Text(
-        title,
-        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+    return Padding(
+      padding: const EdgeInsets.all(4.0),
+      child: ElevatedButton(
+        child: Text(
+          title,
+          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+        ),
+        onPressed: () {
+          onPressed();
+        },
       ),
-      onPressed: () {
-        onPressed();
-      },
     );
   }
 }
