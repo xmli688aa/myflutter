@@ -33,7 +33,7 @@ final List<GetPage> getPages = [
   GetPage(name: EventBusPage.routeName, page: ()=>const EventBusPage()),
   GetPage(name: ETGetXPageDemo.routeName, page: ()=>const ETGetXPageDemo()),
   GetPage(name: GetXObxPage.routeName, page: ()=>GetXObxPage()),
-  GetPage(name: GetxControllerExamplePage.routeName, page: ()=>GetxControllerExamplePage()),
+  GetPage(name: GetxControllerExamplePage.routeName, page: ()=>const GetxControllerExamplePage()),
   GetPage(name: GetxSecondPage.routeName, page: ()=>const GetxSecondPage()),
 
 ];

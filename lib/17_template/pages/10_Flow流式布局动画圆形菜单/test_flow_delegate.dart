@@ -41,7 +41,7 @@ class TestFlowDelegate extends FlowDelegate {
     for (var i = 0; i < context.childCount-1; i++) {
       ///获取第i个子Widget的大小
       // Size itemChildSize =  context.getChildSize(i);
-      Size itemChildSize = Size(30, 30);
+      Size itemChildSize = const Size(30, 30);
 
       ///计算每个子Widget 的坐标
       x= context.size.width -itemChildSize.width*1.4- cos(a*i+initAngle)*radius/3*radiusRate;
@@ -53,7 +53,7 @@ class TestFlowDelegate extends FlowDelegate {
     ///最后一个做为菜单选项
     int lastIndex = context.childCount-1;
     // Size lastChildSize= context.getChildSize(lastIndex);
-    Size lastChildSize = Size(30, 30);
+    Size lastChildSize = const Size(30, 30);
 
     double lastx= context.size.width -lastChildSize.width*1.4;
     double lasty= context.size.height - lastChildSize.height*2;

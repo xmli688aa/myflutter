@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../app_global_controller.dart';
-import '../getx_controller_example_logic.dart';
 import 'getx_second_logic.dart';
 
 class GetxSecondPage extends StatelessWidget {
@@ -18,13 +17,13 @@ class GetxSecondPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('GetxSecondPage'),
+        title: const Text('GetxSecondPage'),
       ),
       body: Column(
         children: [
           ElevatedButton(onPressed: (){
             globalController.userName.value= "哼哼哈嘿";
-          }, child: Text("修改globalController的userName改成哼哼哈嘿")),
+          }, child: const Text("修改globalController的userName改成哼哼哈嘿")),
         ],
       ),
     );

@@ -1,6 +1,6 @@
 // 枚举: enum
 main(List<String> args) {
-  final color = Colors.red;
+  const color = Colors.red;
 
   switch (color) {
     case Colors.red:

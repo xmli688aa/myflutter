@@ -3,6 +3,8 @@ import 'bottom_app_bar_5.dart';
 
 /// 半圆菜单
 class Bottom5Page extends StatefulWidget {
+  const Bottom5Page({super.key});
+
   @override
   _Bottom5PageState createState() => _Bottom5PageState();
 }
@@ -54,7 +56,7 @@ class _Bottom5PageState extends State<Bottom5Page>
       children: [
         /// 内容
         Scaffold(
-          appBar: AppBar(title: Text('半折扇菜单')),
+          appBar: AppBar(title: const Text('半折扇菜单')),
           body: content(),
         ),
 
@@ -123,6 +125,6 @@ class _Bottom5PageState extends State<Bottom5Page>
     /// 收拢
     _animationController.reverse();
 
-    setState(() => this.isShow = false);
+    setState(() => isShow = false);
   }
 }

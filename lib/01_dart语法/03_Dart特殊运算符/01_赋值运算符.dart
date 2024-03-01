@@ -9,7 +9,7 @@ main(List<String> args) {
   // ??:
   // ??前面的数据有值, 那么就使用??前面的数据
   // ??前面的数据为null, 那么就使用后面的值
-  var name = null;
+  var name;
   var temp = name ?? "lilei";
   print(temp);
 }

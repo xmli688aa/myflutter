@@ -10,7 +10,7 @@ main(List<String> args) {
   age = 30;
 
   // 2.2.final声明常量
-  final height = 1.88;
+  const height = 1.88;
   // height = 2.00;
 
   // 2.3.const声明常量
@@ -30,9 +30,9 @@ main(List<String> args) {
   // print(identical(p1, p2));
 
   // 在Dart2.0之后, const可以省略
-  const p1 = const Person("why");
-  const p2 = const Person("why");
-  const p3 = const Person("lilei");
+  const p1 = Person("why");
+  const p2 = Person("why");
+  const p3 = Person("lilei");
 
   print(identical(p1, p2));
   print(identical(p2, p3));

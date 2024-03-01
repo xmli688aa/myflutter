@@ -28,11 +28,8 @@ class Animal {
 }
 
 class SuperMan extends Animal with Runner, Flyer {
-  @override
-  void eating() {
-    super.eating();
-  }
 
+  @override
   void running() {
     print("SuperMan running");
   }

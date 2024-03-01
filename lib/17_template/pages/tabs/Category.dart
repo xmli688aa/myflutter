@@ -13,7 +13,7 @@ class _CategoryPageState extends State<CategoryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('TabBar的使用'),
+        title: const Text('TabBar的使用'),
       ),
       body: DefaultTabController(
         length: 8,
@@ -102,7 +102,7 @@ class _CategoryPageState extends State<CategoryPage> {
               ],
             )),
       ),
-      drawer: HomeDrawer(),
+      drawer: const HomeDrawer(),
 
     );
   }

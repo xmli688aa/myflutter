@@ -43,8 +43,8 @@ class _ETDialogPageState extends State<ETDialogPage> {
     //可以通过result监听点击事件 也可以直接在按钮的点击方法中处理点击事件
     var result = await showDialog(context: context, builder:(context){
       return AlertDialog(
-            title: Text("提示"),
-        content: Text("您确定要删除吗"),
+            title: const Text("提示"),
+        content: const Text("您确定要删除吗"),
         actions: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -52,12 +52,12 @@ class _ETDialogPageState extends State<ETDialogPage> {
               FloatingActionButton(onPressed: (){
                 print("取消");
                 Navigator.pop(context,"Cancel");
-              },child: Text("取消"),),
+              },child: const Text("取消"),),
               FloatingActionButton(onPressed: (){
                 print("确定");
                 Navigator.pop(context,"OK");
 
-              },child: Text("确定"),),
+              },child: const Text("确定"),),
             ],
           )
         ],
@@ -68,36 +68,36 @@ class _ETDialogPageState extends State<ETDialogPage> {
   _simpleDialog() async {
     var result = await showDialog(context: context, builder: (context){
       return SimpleDialog(
-          title: Text("选择内容"),
+          title: const Text("选择内容"),
         children: [
           SimpleDialogOption(
-            child: Text("Option A"),
+            child: const Text("Option A"),
             onPressed: (){
               print("Option A");
               Navigator.pop(context,"A");
 
             },
           ),
-          Divider(),
+          const Divider(),
           SimpleDialogOption(
-            child: Text("Option B"),
+            child: const Text("Option B"),
             onPressed: (){
               print("Option B");
               Navigator.pop(context,"B");
 
             },
           ),
-          Divider(),
+          const Divider(),
 
           SimpleDialogOption(
-            child: Text("Option C"),
+            child: const Text("Option C"),
             onPressed: (){
               print("Option C");
               Navigator.pop(context,"C");
 
             },
           ),
-          Divider(),
+          const Divider(),
 
         ],
       );
@@ -107,31 +107,31 @@ class _ETDialogPageState extends State<ETDialogPage> {
   }
   _modalBottomSheet(){
    showModalBottomSheet(context: context, builder: (context){
-     return Container(
+     return SizedBox(
        height: 200,
        child:  Column(
          children: [
            ListTile(
-             title: Text("分享 A"),
+             title: const Text("分享 A"),
              onTap: (){
                print("A");
                Navigator.pop(context,"A");
 
              },
            ),
-           Divider(),
+           const Divider(),
            ListTile(
-             title: Text("分享 B"),
+             title: const Text("分享 B"),
              onTap: (){
                print("B");
                Navigator.pop(context,"B");
 
              },
            ),
-           Divider(),
+           const Divider(),
 
            ListTile(
-             title: Text("分享 C"),
+             title: const Text("分享 C"),
              onTap: (){
                print("C");
                Navigator.pop(context,"C");

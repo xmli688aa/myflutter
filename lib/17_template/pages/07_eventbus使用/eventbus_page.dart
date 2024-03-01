@@ -1,4 +1,3 @@
-import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'eventbus_page2.dart';
 import 'global_manager.dart';
@@ -52,32 +51,32 @@ class _EventBusPageState extends State<EventBusPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("evnetbus"),
+        title: const Text("evnetbus"),
       ),
       body: Center(
         child: Column(
           children: [
-            SizedBox(height: 44,),
+            const SizedBox(height: 44,),
             Text(_title),
             ElevatedButton(onPressed: (){
               //传递模型
               PersonInfo info = PersonInfo("张大仙", 19);
               EventBusManager.instance.fire(info);
 
-            }, child: Text("通过模型修改title")),
-            SizedBox(height: 44,),
+            }, child: const Text("通过模型修改title")),
+            const SizedBox(height: 44,),
             Text(_message),
             ElevatedButton(onPressed: (){
               // 传递字符串
               EventBusManager.instance.fire("修改后message");
-            }, child: Text("通过字符串修改message")),
-            SizedBox(height: 44,),
+            }, child: const Text("通过字符串修改message")),
+            const SizedBox(height: 44,),
             Text(_content),
             ElevatedButton(onPressed: (){
               Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                return EventBusPage2();
+                return const EventBusPage2();
               }));
-            }, child: Text("跳转下个页面")),
+            }, child: const Text("跳转下个页面")),
           ],
         ),
       ),

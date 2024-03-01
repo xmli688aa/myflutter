@@ -1,7 +1,7 @@
 main(List<String> args) {
   // final s = Shape();
 
-  final map = Map();
+  final map = {};
   print(map.runtimeType);
 }
 

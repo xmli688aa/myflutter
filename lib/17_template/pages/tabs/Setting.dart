@@ -16,10 +16,10 @@ class _SettingPageState extends State<SettingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('组件使用案例'),
+        title: const Text('组件使用案例'),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,7 +39,7 @@ class _SettingPageState extends State<SettingPage> {
           ],
         ),
       ),
-      drawer: HomeDrawer(),
+      drawer: const HomeDrawer(),
     );
   }
 }
@@ -51,7 +51,7 @@ Widget _buildElevatedButton(
   return ElevatedButton(
     child: Text(
       title,
-      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
     ),
     onPressed: () {
       onPressed();

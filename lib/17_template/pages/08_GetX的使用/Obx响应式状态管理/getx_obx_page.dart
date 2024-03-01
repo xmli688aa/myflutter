@@ -8,6 +8,8 @@ class GetXObxPage extends StatelessWidget {
   // var count = Rx<double>(0);
   var _count = 0.obs;
   final _teacher = ETTeacher();
+
+  GetXObxPage({super.key});
   void increment() {
     _count++;
   }
@@ -16,20 +18,20 @@ class GetXObxPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("计数器"),
+        title: const Text("计数器"),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Obx(() => Text("当前计数：${_count}")),
+            Obx(() => Text("当前计数：$_count")),
             ElevatedButton(
               onPressed: () {
                 increment();
               },
-              child: Text("点我+1"),
+              child: const Text("点我+1"),
             ),
-            SizedBox(height: 60,),
+            const SizedBox(height: 60,),
             Obx(() => Text("老师的姓名:${_teacher.name} 年龄:${_teacher.age}")),
             ElevatedButton(
               onPressed: () {
@@ -37,7 +39,7 @@ class GetXObxPage extends StatelessWidget {
                 _teacher.name.value = "张三";
                 _teacher.age.value = 49;
               },
-              child: Text("修改老师数据"),
+              child: const Text("修改老师数据"),
             ),
           ],
         ),

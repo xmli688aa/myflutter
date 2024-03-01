@@ -6,11 +6,11 @@ import 'package:flutter/material.dart';
 class ETCustomDialog extends Dialog {
   String title;
   String content;
-  ETCustomDialog(this.title,this.content);
+  ETCustomDialog(this.title,this.content, {super.key});
   var _timer ;
   bool _isPop = false;
   _showTimer(BuildContext context){
-    _timer = Timer.periodic(Duration(seconds: 2), (t) {
+    _timer = Timer.periodic(const Duration(seconds: 2), (t) {
         print("timer执行完毕");
         if(_isPop == false){
           Navigator.pop(context);
@@ -34,7 +34,7 @@ class ETCustomDialog extends Dialog {
             // mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: Stack(
                   children: [
                     Align(
@@ -44,7 +44,7 @@ class ETCustomDialog extends Dialog {
                     Align(
                       alignment: Alignment.topRight,
                       child: InkWell(
-                        child: Icon(Icons.close),
+                        child: const Icon(Icons.close),
                         onTap: (){
                           _isPop = true;
                           Navigator.pop(context);
@@ -54,7 +54,7 @@ class ETCustomDialog extends Dialog {
                   ],
                 ),
               ),
-              Divider(),
+              const Divider(),
               Padding(
                 padding: const EdgeInsets.only(left: 8,right: 8),
                 child: Container(

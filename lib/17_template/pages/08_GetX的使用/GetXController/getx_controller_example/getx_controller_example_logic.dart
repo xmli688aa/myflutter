@@ -14,15 +14,7 @@ class GetxControllerExampleLogic extends GetxController {
     Get.toNamed(GetxSecondPage.routeName);
  }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
 
-  @override
-  void onClose() {
-    super.onClose();
-  }
 }
 
 

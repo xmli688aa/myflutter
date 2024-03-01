@@ -12,8 +12,6 @@ import 'package:my_app/17_template/pages/09_webPage%E9%A1%B5%E9%9D%A2%E5%8A%A0%E
 import 'package:my_app/17_template/pages/tabs/home_drawer.dart';
 
 import '../10_Flow流式布局动画圆形菜单/bottom_5_page.dart';
-import '../10_Flow流式布局动画圆形菜单/demo_flow_menu.dart';
-import '../10_Flow流式布局动画圆形菜单/flow_menu_page.dart';
 import '../11_path_provider使用/path_provider_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -62,24 +60,24 @@ class _HomePageState extends State<HomePage> {
             _buildButton(
                 title: "09：加载web页面",
                 onPressed: () {
-                  Get.to(WebPage());
+                  Get.to(const WebPage());
                 }),
             _buildButton(
                 title: "10：加载半圆形菜单",
                 onPressed: () {
-                  Get.to(Bottom5Page());
+                  Get.to(const Bottom5Page());
                 }),
             _buildButton(
                 title: "11：文件、文件夹操作 path_provider的使用",
                 onPressed: () {
-                  Get.to(PathProviderPage());
+                  Get.to(const PathProviderPage());
                 }),
 
           ],
         ),
       ),
-      drawer: HomeDrawer(),
-      endDrawer: Drawer(
+      drawer: const HomeDrawer(),
+      endDrawer: const Drawer(
         child: Center(child: Text('endDrawer')),
       ),
     );
@@ -92,7 +90,7 @@ class _HomePageState extends State<HomePage> {
       child: ElevatedButton(
         child: Text(
           title,
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
         onPressed: () {
           // Navigator.pushNamed(context, routeName);
@@ -109,7 +107,7 @@ class _HomePageState extends State<HomePage> {
       child: ElevatedButton(
         child: Text(
           title,
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
         onPressed: () {
           onPressed();

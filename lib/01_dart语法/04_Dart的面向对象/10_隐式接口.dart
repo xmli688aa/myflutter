@@ -32,10 +32,6 @@ class Animal {
 }
 
 class SuperMan extends Animal implements Runner, Flyer {
-  @override
-  void eating() {
-    super.eating();
-  }
 
   @override
   void flying() {

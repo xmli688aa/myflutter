@@ -18,7 +18,7 @@ class _PathProviderPageState extends State<PathProviderPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('文件、文件夹操作'),
+        title: const Text('文件、文件夹操作'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -29,62 +29,62 @@ class _PathProviderPageState extends State<PathProviderPage> {
                   createDir();
                   print('创建文件夹');
                 },
-                child: Text('创建文件夹')),
+                child: const Text('创建文件夹')),
             TextButton(
                 onPressed: () {
                   queryDir();
                   print('遍历文件夹');
                 },
-                child: Text('遍历文件夹')),
+                child: const Text('遍历文件夹')),
             TextButton(
                 onPressed: () {
                   renameDir();
                   print('重命名文件夹');
                 },
-                child: Text('重命名文件夹')),
+                child: const Text('重命名文件夹')),
             TextButton(
                 onPressed: () {
                   deleteDir();
                   print('删除文件夹');
                 },
-                child: Text('删除文件夹')),
+                child: const Text('删除文件夹')),
             TextButton(
                 onPressed: () {
                   createFile();
                   print('创建文件');
                 },
-                child: Text('创建文件')),
+                child: const Text('创建文件')),
             TextButton(
                 onPressed: () {
                   deleteFile();
                   print('删除文件');
                 },
-                child: Text('删除文件')),
+                child: const Text('删除文件')),
             TextButton(
                 onPressed: () {
                   writeFile();
                   print('文件写入数据');
                 },
-                child: Text('文件写入数据')),
+                child: const Text('文件写入数据')),
             TextButton(
                 onPressed: () {
                   writeFileContinue();
                   print('文件追加写入数据');
                 },
-                child: Text('文件追加写入数据')),
+                child: const Text('文件追加写入数据')),
             TextButton(
                 onPressed: () {
                   readFile();
                   print('文件读取');
                 },
-                child: Text('文件读取')),
+                child: const Text('文件读取')),
             Text(fileStr),
             TextButton(
                 onPressed: () {
                   readAsset(context);
                   print('读取asset文件数据');
                 },
-                child: Text('读取asset文件数据的两种方式')),
+                child: const Text('读取asset文件数据的两种方式')),
           ],
         ),
       ),

@@ -19,7 +19,7 @@ class _GetxControllerExamplePageState extends State<GetxControllerExamplePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("GetxControllerExamplePage"),
+        title: const Text("GetxControllerExamplePage"),
       ),
       body: Center(
         child: Column(
@@ -28,11 +28,11 @@ class _GetxControllerExamplePageState extends State<GetxControllerExamplePage> {
             Obx(() => Text("姓名是：${state.teacher.name}")),
             ElevatedButton(onPressed: (){
               logic.convertToUpperCase();
-            }, child: Text("改成大写")),
+            }, child: const Text("改成大写")),
             ElevatedButton(onPressed: (){
               logic.jumpToSecondPage();
 
-            }, child: Text("跳转second页面修改globalController的userName")),
+            }, child: const Text("跳转second页面修改globalController的userName")),
           ],
         ),
       ),

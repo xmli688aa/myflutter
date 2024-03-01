@@ -6,13 +6,13 @@ class VisibilityPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Visibility'),
+        title: const Text('Visibility'),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("visible控制内部子组件的显隐"),
-          Text("replacement可在隐藏时进行占位"),
+          const Text("visible控制内部子组件的显隐"),
+          const Text("replacement可在隐藏时进行占位"),
           // Wrap流式布局组件 默认水平布局 位置不够自动换到下一行
           Wrap(
             spacing: 10,
@@ -33,7 +33,7 @@ class VisibilityPage extends StatelessWidget {
       width: 50,
       color: Colors.blue,
       // margin: EdgeInsets.all(5),
-      child: Center(child: Text("box")),
+      child: const Center(child: Text("box")),
 
     );
     return Container(

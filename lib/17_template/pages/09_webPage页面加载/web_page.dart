@@ -45,7 +45,7 @@ class _WebPageState extends State<WebPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('加载web页面'),
+        title: const Text('加载web页面'),
         actions: <Widget>[
           NavigationControls(webViewController: _controller),
         ],
@@ -75,13 +75,13 @@ class _WebPageState extends State<WebPage> {
               print("scrollTo:$scrollTo");
               _controller.scrollTo(0, scrollTo);
             },
-            child: Text("滚动一半"),
+            child: const Text("滚动一半"),
           ),
           ElevatedButton(
             onPressed: () async {
               _controller.scrollTo(0, 0);
             },
-            child: Text("滚动到顶部"),
+            child: const Text("滚动到顶部"),
           ),
 
           ElevatedButton(
@@ -91,14 +91,14 @@ class _WebPageState extends State<WebPage> {
               print("fileHtmlContents:$fileHtmlContents");
               _controller.loadHtmlString(fileHtmlContents);
             },
-            child: Text("加载本地Html"),
+            child: const Text("加载本地Html"),
           ),
           ElevatedButton(
             onPressed: () async {
               //发送给web端消息，其中 webReceiveMessage 为 web 给 'name' 添加的方法
-              _controller?.runJavaScript('flutterMessage.webReceiveMessage("收到了没")');
+              _controller.runJavaScript('flutterMessage.webReceiveMessage("收到了没")');
             },
-            child: Text("发送消息给h5"),
+            child: const Text("发送消息给h5"),
           ),
         ],
       ),

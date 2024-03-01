@@ -10,7 +10,7 @@ class EventBusPage2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("eventbus传递数据给上个页面"),
+        title: const Text("eventbus传递数据给上个页面"),
       ),
       body: Center(
         child: ElevatedButton(onPressed: (){
@@ -18,7 +18,7 @@ class EventBusPage2 extends StatelessWidget {
           PersonInfo info = PersonInfo("于云鹏", 49);
           EventBusManager.instance.fire(info);
 
-        }, child: Text("修改上个页面的数据")),
+        }, child: const Text("修改上个页面的数据")),
       ),
     );
   }

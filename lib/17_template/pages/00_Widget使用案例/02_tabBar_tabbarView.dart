@@ -39,16 +39,16 @@ class _MyTabBarPageState extends State<MyTabBarPage>
               width: double.infinity,
               height: 44,
               color: Colors.blue,
-              child: Text('第一行的数据'),
+              child: const Text('第一行的数据'),
             ),
-            Container(
+            SizedBox(
               height: 44,
               child: TabBar(
                 controller: _tabController,
                 tabs: tabs.map((e) => Text(e)).toList(),
               ),
             ),
-            Container(
+            SizedBox(
               //TODO 这里要提供一个高度
               height: tabbarViewH,
               child: TabBarView(
