@@ -85,9 +85,10 @@ class _EventBusPageState extends State<EventBusPage> {
   }
   @override
   void dispose() {
-    print("dispose");
+    // print("dispose");
     discrip1.cancel();
     discrip2.cancel();
+    discrip3.cancel();
     super.dispose();
 
   }
