@@ -15,7 +15,8 @@ class ETGetXPageDemo extends StatefulWidget {
 }
 
 class _ETGetXPageDemoState extends State<ETGetXPageDemo> {
-  final AppGlobalController globalController  = Get.put(AppGlobalController());
+  // final AppGlobalController globalController  = Get.put(AppGlobalController());
+  final AppGlobalController globalController  = Get.find<AppGlobalController>();
 
   @override
   Widget build(BuildContext context) {

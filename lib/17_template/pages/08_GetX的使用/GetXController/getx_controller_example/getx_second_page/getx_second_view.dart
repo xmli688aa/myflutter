@@ -13,7 +13,7 @@ class GetxSecondPage extends StatelessWidget {
     final logic = Get.put(GetxSecondLogic());
     final state = Get.find<GetxSecondLogic>().state;
 
-    final AppGlobalController globalController  = Get.put(AppGlobalController());
+    final AppGlobalController globalController  = Get.find<AppGlobalController>();
 
     return Scaffold(
       appBar: AppBar(
